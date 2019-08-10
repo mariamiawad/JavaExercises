@@ -1,0 +1,13 @@
+
+public class RandomUpperLetters {
+
+	public RandomUpperLetters() {
+		// TODO Auto-generated constructor stub
+	}
+	public static void main(String[] args) {
+		int i = (int) (Math.random()*26);
+		char s = 'A';
+		System.out.println((char)s+i%26);
+	}
+
+}

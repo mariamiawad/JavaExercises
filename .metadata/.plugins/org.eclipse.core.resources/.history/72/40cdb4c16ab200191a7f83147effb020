@@ -1,0 +1,54 @@
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class RunningMedian {
+Comparator<Integer> maxHeapComparator = new Comparator<Integer>() {
+
+	
+	
+
+
+public static int MaxHeap(int array) {
+	
+	 PriorityQueue<Integer> queue = new PriorityQueue<Integer>(Collections.reverse(Arrays.asList(array)));
+	 return queue.peek();
+	
+}
+
+public static int MinimumHeap(int array) {
+	PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
+	for (int i = 0; i < array.length; i++) {
+		queue.add(array[i]);
+	}
+	return queue.peek();
+
+	
+}
+
+	public static void getMedian(int[] array) {}
+
+	private static final Scanner scanner = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		int n = scanner.nextInt();
+		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+		int[] a = new int[n];
+
+		for (int i = 0; i < n; i++) {
+			int aItem = scanner.nextInt();
+			scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+			a[i] = aItem;
+		}
+
+		scanner.close();
+		getMedian(a);
+	}
+}

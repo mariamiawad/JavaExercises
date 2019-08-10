@@ -1,0 +1,114 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+import Graph.Edge;
+
+public class SpecialSubTree {
+
+	 class Graph {
+		  class Edge implements Comparable<Edge> {
+			int src;
+			int dest;
+			int weight;
+
+			@Override
+			public int compareTo(Edge compareEdge) {
+				return this.weight - compareEdge.weight;
+
+			}
+		}
+
+		  class subSets {
+			int parent;
+			int rank;
+		}
+
+		int V;
+		int E;
+		Edge[] edges;
+
+		Graph(int v, int e) {
+			V = v;
+			E = e;
+			edges = new Edge[E];
+			for (int i = 0; i < e; ++i) {
+				edges[i] = new Edge();
+			}
+
+		}
+
+		int find(subSets subSets[], int i) {
+			if (subSets[i].parent != i) {
+				subSets[i].parent = find(subSets, subSets[i].parent);
+
+			}
+			return subSets[i].parent;
+		}
+
+		void Union(subSets subSets[], int x, int y) {
+			int xroot = find(subSets, x);
+			int yroot = find(subSets, y);
+			if (subSets[xroot].rank < subSets[yroot].rank) {
+				subSets[xroot].parent = yroot;
+			} else if (subSets[xroot].rank > subSets[yroot].rank) {
+				subSets[yroot].parent = xroot;
+			} else {
+				subSets[yroot].parent = xroot;
+				subSets[xroot].rank++;
+			}
+		}
+	}
+
+	// Complete the prims function below.
+	static int prims(int n, int[][] edges, int start) {
+		SpecialSubTree.Graph.Edge edge[] = new SpecialSubTree.Graph.Edge[edges.length];
+		
+		for (int i = 0; i < edges.length; i++) {
+			edge[i]= new SpecialSubTree.Graph.Edge();
+			for (int j = 0; j < edges[0].length; j++) {
+				edge[i].weight = edges[i][j];
+			}
+			int e =0;
+			
+			
+		}
+	}
+
+	private static final Scanner scanner = new Scanner(System.in);
+
+	public static void main(String[] args) throws IOException {
+		BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+		String[] nm = scanner.nextLine().split(" ");
+
+		int n = Integer.parseInt(nm[0]);
+
+		int m = Integer.parseInt(nm[1]);
+
+		int[][] edges = new int[m][3];
+
+		for (int i = 0; i < m; i++) {
+			String[] edgesRowItems = scanner.nextLine().split(" ");
+			scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+			for (int j = 0; j < 3; j++) {
+				int edgesItem = Integer.parseInt(edgesRowItems[j]);
+				edges[i][j] = edgesItem;
+			}
+		}
+
+		int start = scanner.nextInt();
+		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+		int result = prims(n, edges, start);
+
+		bufferedWriter.write(String.valueOf(result));
+		bufferedWriter.newLine();
+
+		bufferedWriter.close();
+
+		scanner.close();
+	}
+}

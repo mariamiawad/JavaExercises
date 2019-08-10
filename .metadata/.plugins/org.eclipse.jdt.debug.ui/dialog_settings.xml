@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth0" value="132"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1" value="232"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2" value="94"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn" value="1"/>
+	<section name="expressionHistory">
+	</section>
+	<section name="org.eclipse.jdt.internal.debug.ui.ExpressionInformationControlCreator$ExpressionInformationControl">
+		<item key="WIDTH" value="815"/>
+		<item key="HEIGHT" value="267"/>
+		<item key="SashWeightTree" value="815"/>
+		<item key="SashWeightDetails" value="184"/>
+	</section>
+	<section name="conditionHistory">
+		<item key="conditionHistoryEntry_0" value="min == 50 || min ==-50&#x0D;&#x0A;"/>
+		<item key="conditionHistoryEntryCount" value="10"/>
+		<item key="conditionHistoryEntry_1" value="min ==50 || min ==-50"/>
+		<item key="conditionHistoryEntry_2" value="arr[i]==-20"/>
+		<item key="conditionHistoryEntry_3" value="arr[i+1]==20"/>
+		<item key="conditionHistoryEntry_4" value="arr[i-1]==20"/>
+		<item key="conditionHistoryEntry_5" value="arr[i]==20"/>
+		<item key="conditionHistoryEntry_6" value="arr[i]==-20 || arr[i+1]  ==-20 || arr[i-1]==-20"/>
+		<item key="conditionHistoryEntry_7" value="a[i]==-20 || a[i+1]  ==-20 || a[i-1]==-20"/>
+		<item key="conditionHistoryEntry_8" value="a[i]==-20 || a[i+1}  ==-20 || a[i-1]==-20"/>
+		<item key="conditionHistoryEntry_9" value="root.data ==23&#x0D;&#x0A;"/>
+	</section>
+</section>

@@ -1,0 +1,87 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class QueueExercise {static class MyQueue <Integer>{
+    
+ Stack<Integer> stack1 = new Stack<Integer>();
+ Stack<Integer> stack2 = new Stack<Integer>();
+public void enqueue(Integer element){
+       if((int)element < 1 && (int)element > (int)(Math.pow(10, 5))) {
+        System.exit(1);
+    }
+    if(stack1.size()<1 && stack1.size()>Math.pow(10, 9)) {
+        System.exit(1);
+    }
+    Integer data = element;
+    stack1.push(data);
+//    while(!stack2.isEmpty()) {
+//        stack1.push(stack2.pop());
+//    }
+       
+   
+    
+    
+    
+     
+    
+}
+public Integer dequeue() {
+    if(stack1.isEmpty()) {
+    while(!stack2.isEmpty()) {
+        stack1.push(stack2.pop());
+    }
+   
+    }
+   
+   
+    if(stack2.isEmpty()){
+    while(!stack1.isEmpty()) {
+        
+        stack2.push(stack1.pop());
+    }
+    }
+    return stack2.pop();
+    
+ 
+}
+public Integer peek() {
+ if(stack2.isEmpty()) {
+     while (!stack1.isEmpty()) {
+         stack2.push(stack1.pop());
+         
+     }
+ }
+   Integer data = stack2.peek();
+   if(stack1.isEmpty()) {
+       while (!stack2.isEmpty()) {
+           stack1.push(stack2.pop());
+           
+       }
+       
+   }
+    return data;
+    
+}
+}
+public static void main(String[] args) {
+ MyQueue<Integer> queue = new MyQueue<Integer>();
+
+ Scanner scan = new Scanner(System.in);
+ int n = scan.nextInt();
+
+ for (int i = 0; i < n; i++) {
+     int operation = scan.nextInt();
+     if (operation == 1) { // enqueue
+       queue.enqueue(scan.nextInt());
+     } else if (operation == 2) { // dequeue
+       queue.dequeue();
+     } else if (operation == 3) { // print/peek
+       System.out.println(queue.peek());
+     }
+ }
+ scan.close();
+}}
+

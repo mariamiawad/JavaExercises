@@ -1,0 +1,99 @@
+import java.util.*;
+
+import org.omg.CORBA.Current;
+
+import java.io.*;
+
+//class Node {
+//    Node left;
+//    Node right;
+//    int data;
+//    
+//    Node(int data) {
+//        this.data = data;
+//        left = null;
+//        right = null;
+//    }
+//}
+
+class TopView {
+
+	/*
+	 * 
+	 * class Node int data; Node left; Node right;
+	 */
+
+	static List<Node> list = new LinkedList<Node>();
+
+	public static void topView(Node root) {
+
+		if (root == null) {
+			return;
+		}
+		Node current = root;
+		if (root.right == null && root.left == null) {
+			list.add(root);
+			for (Node node : list) {
+				System.out.print(node.data + " ");
+				topView(node.left);
+
+			}
+			
+		}
+//		if (root.left == null) {
+//			list.add(root);
+//			for (Node node : list) {
+//				System.out.print(node.data + " ");
+//			}
+//		}
+
+		if (root.right != null && current.left != null) {
+
+			list.add(root);
+			topView(root.right);
+			topView(current.left);
+		}
+//		if (current.left != null) {
+//			
+//			list.add(root);
+//			topView(current.left);
+//		}
+	}
+
+//		   if( root.right != null && root.left==null) {
+//			 list.add(root.left);
+//			 for (Node node : list) {
+//				 System.out.print(node.data);
+//			}
+
+//		}
+
+	public static Node insert(Node root, int data) {
+		if (root == null) {
+			return new Node(data);
+		} else {
+			Node cur;
+			if (data <= root.data) {
+				cur = insert(root.left, data);
+				root.left = cur;
+			} else {
+				cur = insert(root.right, data);
+				root.right = cur;
+			}
+			return root;
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int t = scan.nextInt();
+		Node root = null;
+		while (t-- > 0) {
+			int data = scan.nextInt();
+			root = insert(root, data);
+		}
+
+		scan.close();
+		topView(root);
+	}
+}

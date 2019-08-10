@@ -1,0 +1,89 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class RunningMedian {
+
+	ArrayList<Integer> arrayList= new ArrayList<Integer>();
+public static void name(int [] array) {
+	
+	Arrays.sort(array);
+	for (int i = 1; i < array.length-1; i++) {
+		int [] tempArray = new int [i];
+		for (int j = 0; j <i; j++) {
+			tempArray[j]= array[i-1]; 
+		}
+
+		if(isOdd(tempArray)){
+			
+		}
+		
+	}
+	
+	
+}
+private static boolean isOdd(int [] array) {
+	int count = 0;
+	boolean isOdd = false;
+	for (int i = 0; i < array.length; i++) {
+		count++;
+	}
+	if (count%2==0) {
+		return false;
+		
+	}
+	else {
+		return true;
+	}
+}
+public static int[] getMedian(int [] array) {
+	int length=0;
+	boolean isOdd = isOdd(array);
+	if(isOdd)
+	{	
+		length = (array.length+1)/2;
+	}
+	else {
+		length = array.length/2;
+	}
+	
+	for (int i = 1; i < array.length-1; i++) {
+		for (int j = 0; j <i; j++) {
+			if(isOdd)
+			{
+				int arr[] = new int [i];
+				arr[j] = array[j];
+				arr[j+1] = array[j+1];
+				tempArray[i-1]= arr[j];
+				tempArray[i]= arr[j+1];
+				
+			}
+			else {
+				
+			}
+		}
+		
+	}
+	
+}
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        int[] a = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            int aItem = scanner.nextInt();
+            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+            a[i] = aItem;
+        }
+
+        scanner.close();
+    }
+}
