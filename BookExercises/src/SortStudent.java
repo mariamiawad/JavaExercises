@@ -38,6 +38,7 @@ public class SortStudent {
 		for (Entry<Object, Object> entry : sortedByCount.entrySet()) {
 			System.out.println(entry.getKey()+" "+ entry.getValue());
 		}
+		
 	}
 
 }
