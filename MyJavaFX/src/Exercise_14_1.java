@@ -28,24 +28,23 @@ public class Exercise_14_1 extends Application {
 		// Create a pane to hold the image views
 		StackPane root = new StackPane();
 		VBox hbox = new VBox(10);
-		HBox vbox = new HBox(10); 
-		HBox vbox2 = new HBox(10); 
+		HBox vbox = new HBox(10);
+		HBox vbox2 = new HBox(10);
 		root.setPadding(new Insets(5, 5, 5, 5));
-		
-		
+
 		Image image = new Image("file:///C:/Users/maria/eclipse-workspace/MyJavaFX/src/14.1/unitedkingdom.png");
 		ImageView imageView1 = new ImageView(image);
 		imageView1.setFitHeight(200);
 		imageView1.setFitWidth(200);
 		imageView1.setX(0);
 		vbox.getChildren().add(imageView1);
-		
+
 		image = new Image("file:///C:/Users/maria/eclipse-workspace/MyJavaFX/src/14.1/canda.png");
 		ImageView imageView2 = new ImageView(image);
 		imageView2.setFitHeight(200);
 		imageView2.setFitWidth(200);
 		vbox.getChildren().add(imageView2);
-		
+
 		image = new Image("file:///C:/Users/maria/eclipse-workspace/MyJavaFX/src/14.1/china.png");
 		ImageView imageView3 = new ImageView(image);
 		imageView3.setFitHeight(200);
@@ -58,7 +57,7 @@ public class Exercise_14_1 extends Application {
 		vbox2.getChildren().add(imageView4);
 		HBox.setHgrow(vbox2, Priority.ALWAYS);
 		hbox.getChildren().addAll(vbox, vbox2);
-        root.getChildren().add(hbox);
+		root.getChildren().add(hbox);
 		Scene scene = new Scene(root);
 		primaryStage.setTitle("ShowImage"); // Set the stage title
 		primaryStage.setScene(scene); // Place the scene in the stage
