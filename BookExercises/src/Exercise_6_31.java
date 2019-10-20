@@ -13,10 +13,7 @@ public class Exercise_6_31 {
 		
 	
 		 long l = inputScanner.nextLong();
-			if (l == 0) {
-				break;
-
-			}
+			
 			if (isValid(l)) {
 				System.out.println(l + " is valid");
 			} else {
