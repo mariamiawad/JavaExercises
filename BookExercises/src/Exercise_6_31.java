@@ -9,24 +9,40 @@ public class Exercise_6_31 {
 	public static void main(String[] args) {
 		Scanner inputScanner = new Scanner(System.in);
 		System.out.println("Enter a credit card number as a long integer:");
-		long x = inputScanner.nextLong();
-		System.out.println(sumOfDoubleEvenPlace(x));
-		System.out.println(sumOfOddPlace(x));
-		if(isValid(x)) {
-		System.out.println(x+" is valid");
+
+		long l = 1;
+		while (l != 0) {
+			l = inputScanner.nextLong();
+			if (l == 0) {
+				break;
+
+			}
+			if (isValid(l)) {
+				System.out.println(l + " is valid");
+			} else {
+				System.out.println(l + " is invalid");
+			}
 		}
-		else {
-			System.out.println(x+" is invalid");
-		}
+
 	}
 
 	/** Return true if the card number is valid */
 	public static boolean isValid(long number) {
-		int sum = sumOfDoubleEvenPlace(number)+sumOfOddPlace(number);
-		if(sum%10==0) {
-			return true;
+		int sum = sumOfDoubleEvenPlace(number) + sumOfOddPlace(number);
+		if (sum % 10 != 0) {
+			return false;
 		}
-		return false;
+		boolean flag = false;
+		for (int i = 3; i < 7; i++) {
+			if (prefixMatched(number, i)) {
+				flag = true;
+				break;
+			}
+		}
+		if (!flag) {
+			return false;
+		}
+		return true;
 	}
 
 	/** Get the result from Step 2 */
@@ -68,7 +84,6 @@ public class Exercise_6_31 {
 	public static int sumOfOddPlace(long number) {
 		String string = number + "";
 		int sum = 0;
-		int multiplier = 0;
 		for (int i = string.length() - 1; i >= 0; i -= 2) {
 			String string2 = string.charAt(i) + "";
 			sum += Integer.parseInt(string2);
@@ -79,12 +94,22 @@ public class Exercise_6_31 {
 
 	/** Return true if the digit d is a prefix for number */
 	public static boolean prefixMatched(long number, int d) {
+		long firstDigit = getPrefix(number, 0);
+		if (firstDigit != d) {
+			return false;
+		}
+		if (d == 3) {
+			if (getPrefix(number, 1) != 7) {
+				return false;
+			}
+		}
 		return true;
 	}
 
 	/** Return the number of digits in d */
 	public static int getSize(long d) {
-		return 0;
+		String s = d + "";
+		return s.length();
 	}
 
 	/**
@@ -92,6 +117,10 @@ public class Exercise_6_31 {
 	 * number is less than k, return number.
 	 */
 	public static long getPrefix(long number, int k) {
-		return 0;
+		if (getSize(number) < k) {
+			return number;
+		}
+		String string = number + "";
+		return Integer.parseInt(string.charAt(k) + "");
 	}
 }
