@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -19,16 +18,18 @@ public class Exercise_7_21 {
 		int numberOfBalls = inputScanner.nextInt();
 		System.out.println("Enter the number of slots in the bean machine:");
 		int numberOfSlots = inputScanner.nextInt();
-		Integer[] slots = new Integer[numberOfSlots];
+		int[] slots = new int[numberOfSlots+1];
 
-		for (int i = 0; i <numberOfBalls; i++) {
-//			String string = inputScanner.nextLine();
-			 String string = simulation(numberOfSlots);
+		for (int i = 0; i < numberOfBalls; i++) {
+			// String string = inputScanner.next();
+			String string = simulation(numberOfSlots);
 			System.out.println(string);
-			slots[i] = readBallPath(string);
+			slots[readBallPath(string)]++;
 
 		}
-		printBallPath(slots, numberOfBalls);
+		System.out.println(Arrays.toString(slots));
+		printBallPath(slots);
+		;
 	}
 
 	public static String simulation(int numberOfBalls) {
@@ -60,104 +61,27 @@ public class Exercise_7_21 {
 
 	}
 
-	public static void printBallPath(Integer[] slots, int numberOfBalls) {
+	public static void printBallPath(int[] slots) {
 
 		int max = 0;
 		for (int i = 0; i < slots.length; i++) {
-			if (slots[i]== null ){
-				slots[i]=0;
-			}
-			if (max < slots[i].intValue()) {
+
+			if (max < slots[i]) {
 				max = slots[i];
 			}
-		} /*
-			 * // Arrays.sort(slots); int count = 0; int temp = max; for (int i = 0; i <
-			 * max; i++) { for (int j = 0; j < slots.length; j++) {
-			 * 
-			 * if (temp == slots[j]) { count++; for (int j2 = max-temp; j2 < temp ; j2++) {
-			 * System.out.print(' ');
-			 * 
-			 * continue; } if (count>=temp) { for (int j2 = 1; j2 < temp; j2++) {
-			 * System.out.print(' '); } System.out.print('0');
-			 * 
-			 * 
-			 * while(temp>0) { System.out.print('0'); temp--; }
-			 * 
-			 * } if (temp == max && count + 1 < max) {
-			 * 
-			 * System.out.println(); }
-			 * 
-			 * } // else { // System.out.print(' '); // }
-			 * 
-			 * } // if (temp == max) { // System.out.println(); // } temp--; }
-			 */
-		String emptySlotsString = "";
-		for (int i = 0; i < slots.length; i++) {
-			emptySlotsString += " ";
 		}
-		Arrays.sort(slots, Collections.reverseOrder());
-		//Sort the list
-//		Collections.sort(numbersList, Collections.reverseOrder());
-//		Arrays.sort(slots);
-//		Collections.reverse(Arrays.asList(slots));
-		int temp = max;
-		int x = 1;
-		String output ="";
 		for (int i = max; i > 0; i--) {
-//			 output = "";
-			for (int j = 0; j < slots.length-1; j++) {
-				if (slots[j] == temp && temp == max&& slots[j+1] == max) {
-					
-					while (slots[j]>0) {
-						output += " ";
-						slots[j]--;
-						
-					}
-					output += "0";
+			for (int j = 0; j < slots.length; j++) {
+				if (slots[j] == i) {
+					System.out.print("0");
 
-					x++;
-				} 
-				/*
-				 * else { output += " "; }
-				 */
-				else if(slots[j]==temp) {
-					{
-						output += "0";
-						
-					}
+					slots[j]--;
+				} else {
+					System.out.print(" ");
 				}
-				if(x<max) {
-					output +="\n";
-				}
-				
 			}
-			
-			temp--;
-			
-			
-		}
-		if (!output.isEmpty()) {
-			System.out.println(output);
+			System.out.println();
 		}
 	}
 
-	public static boolean isEmpty(int[] slots, int i) {
-
-		if (slots[i] > 0) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	public static boolean isRowEmpty(int[] slots, int rowNum) {
-
-		for (int slot : slots) {
-			if (slot == rowNum) {
-				return false;
-			}
-		}
-
-		return true;
-	}
 }
