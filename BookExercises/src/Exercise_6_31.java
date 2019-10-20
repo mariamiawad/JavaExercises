@@ -10,9 +10,9 @@ public class Exercise_6_31 {
 		Scanner inputScanner = new Scanner(System.in);
 		System.out.println("Enter a credit card number as a long integer:");
 
-		long l = 1;
-		while (l != 0) {
-			l = inputScanner.nextLong();
+		
+	
+		 long l = inputScanner.nextLong();
 			if (l == 0) {
 				break;
 
@@ -22,7 +22,7 @@ public class Exercise_6_31 {
 			} else {
 				System.out.println(l + " is invalid");
 			}
-		}
+		
 
 	}
 
