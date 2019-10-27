@@ -1,10 +1,9 @@
 public class Exercise_13_14 extends Number implements Comparable<Exercise_13_14> {
 // Data fields for numerator and denominator
 	private long[] r = new long[2];
-	private long numerator =r[0];
-	private long denominator = r[1];
 
 	/** Construct a rational with default properties */
+
 	public Exercise_13_14() {
 		this(0, 1);
 	}
@@ -12,8 +11,8 @@ public class Exercise_13_14 extends Number implements Comparable<Exercise_13_14>
 	/** Construct a rational with specified numerator and denominator */
 	public Exercise_13_14(long numerator, long denominator) {
 		long gcd = gcd(numerator, denominator);
-		this.numerator = ((denominator > 0) ? 1 : -1) * numerator / gcd;
-		this.denominator = Math.abs(denominator) / gcd;
+		this.r[0] = ((denominator > 0) ? 1 : -1) * numerator / gcd;
+		this.r[1] = Math.abs(denominator) / gcd;
 	}
 
 	/** Find GCD of two numbers */
@@ -31,48 +30,48 @@ public class Exercise_13_14 extends Number implements Comparable<Exercise_13_14>
 	}
 
 	public long getNumerator() {
-		return numerator;
+		return r[0];
 	}
 
 	/** Return denominator */
 	public long getDenominator() {
-		return denominator;
+		return r[1];
 	}
 
 	/** Add a rational number to this rational */
 	public Exercise_13_14 add(Exercise_13_14 secondRational) {
-		long n = numerator * secondRational.getDenominator() + denominator * secondRational.getNumerator();
-		long d = denominator * secondRational.getDenominator();
+		long n = r[0] * secondRational.getDenominator() + r[1] * secondRational.getNumerator();
+		long d = r[1] * secondRational.getDenominator();
 		return new Exercise_13_14(n, d);
 	}
 
 	/** Subtract a rational number from this rational */
 	public Exercise_13_14 subtract(Exercise_13_14 secondRational) {
-		long n = numerator * secondRational.getDenominator() - denominator * secondRational.getNumerator();
-		long d = denominator * secondRational.getDenominator();
+		long n = r[0] * secondRational.getDenominator() - r[1] * secondRational.getNumerator();
+		long d = r[1] * secondRational.getDenominator();
 		return new Exercise_13_14(n, d);
 	}
 
 	/** Multiply a rational number by this rational */
 	public Exercise_13_14 multiply(Exercise_13_14 secondRational) {
-		long n = numerator * secondRational.getNumerator();
-		long d = denominator * secondRational.getDenominator();
+		long n = r[0] * secondRational.getNumerator();
+		long d = r[1] * secondRational.getDenominator();
 		return new Exercise_13_14(n, d);
 	}
 
 	/** Divide a rational number by this rational */
 	public Exercise_13_14 divide(Exercise_13_14 secondRational) {
-		long n = numerator * secondRational.getDenominator();
-		long d = denominator * secondRational.numerator;
+		long n = r[0] * secondRational.getDenominator();
+		long d = r[1] * secondRational.r[0];
 		return new Exercise_13_14(n, d);
 	}
 
 	@Override
 	public String toString() {
-		if (denominator == 1)
-			return numerator + "";
+		if (r[1] == 1)
+			return r[0] + "";
 		else
-			return numerator + "/" + denominator;
+			return r[0] + "/" + r[1];
 	}
 
 	@Override // Override the equals method in the Object class
@@ -95,7 +94,7 @@ public class Exercise_13_14 extends Number implements Comparable<Exercise_13_14>
 
 	@Override // Implement the doubleValue method in Number
 	public double doubleValue() {
-		return numerator * 1.0 / denominator;
+		return r[0] * 1.0 / r[1];
 	}
 
 	@Override // Implement the abstract longValue method in Number
