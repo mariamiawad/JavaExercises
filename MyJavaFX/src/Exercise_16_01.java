@@ -38,7 +38,12 @@ public class Exercise_16_01 extends Application {
 		Button button2 = new Button("=>");
 		Pane paneForText = new Pane();
 		text.setFont(Font.font(25));
-//		paneForText.setPrefWidth(paneForText.getPrefWidth()/2);
+		ToggleGroup group = new ToggleGroup();
+		redButton.setToggleGroup(group);
+		yellowButton.setToggleGroup(group);
+		blackButton.setToggleGroup(group);
+		orangeButton.setToggleGroup(group);
+		greenButton.setToggleGroup(group);
 		paneForText.getChildren().add(text);
 		borderPane.setCenter(paneForText);
 		paneForRadioButtons.getChildren().addAll(redButton, yellowButton, blackButton, orangeButton, greenButton);
