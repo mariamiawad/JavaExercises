@@ -1,35 +1,28 @@
+import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Random;
 
 public class Exercise_17_01 {
 
 	public Exercise_17_01() {
-	
+
 	}
+
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws IOException {
-		
-		File file = new File("Exercise_17_01.txt");
-		try {
-			
-			FileOutputStream outputStream  = null;
-			if (file.exists()) {
-				outputStream = new FileOutputStream(file, true);
-			}
-			else {
-				outputStream = new FileOutputStream(file);
-			}
+		File file = new File("Exercise17_01.txt");
+
+		boolean append = file.exists();
+
+		try (PrintWriter printWriter = new PrintWriter(new BufferedOutputStream(new FileOutputStream(file, append)))) {
 			Random random = new Random();
 			for (int i = 0; i < 100; i++) {
-				int intRandom = random.nextInt(1000);
-				outputStream.write(intRandom);
+				printWriter.write(random.nextInt(100) + " ");
 			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
+		}
 	}
 
 }
