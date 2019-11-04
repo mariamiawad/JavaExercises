@@ -18,7 +18,7 @@ public class Exercise_07_29 {
 			}
 		}
 	}
-
+			
 	private static int[] generateCards() {
 		Random random = new Random();
 		int[] cards = new int[4];
