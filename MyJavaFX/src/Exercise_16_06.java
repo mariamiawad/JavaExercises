@@ -13,9 +13,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class Exercise_16_08 extends Application {
+public class Exercise_16_06 extends Application {
 
-	public Exercise_16_08() {
+	public Exercise_16_06() {
 	}
 
 	public static void main(String[] args) {
