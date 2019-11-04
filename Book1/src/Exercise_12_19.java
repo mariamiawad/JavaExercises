@@ -14,8 +14,7 @@ public class Exercise_12_19 {
 			String string = "";
 			String string2 ="";
 			while (inputScanner.hasNextLine()) {
-				string = inputScanner.nextLine();
-				string2 += string;
+				string += inputScanner.nextLine();
 				
 				
 			}
