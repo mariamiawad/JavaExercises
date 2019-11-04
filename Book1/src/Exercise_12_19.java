@@ -12,7 +12,6 @@ public class Exercise_12_19 {
 		try {
 			Scanner inputScanner = new Scanner(file);
 			String string = "";
-			String string2 ="";
 			while (inputScanner.hasNextLine()) {
 				string += inputScanner.nextLine();
 				
