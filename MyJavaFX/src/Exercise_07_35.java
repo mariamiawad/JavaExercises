@@ -50,7 +50,7 @@ public class Exercise_07_35 {
 				tempString += inputChar[i];
 			}
 			if (tempWord.equals(tempString)) {
-				System.out.println("The word is program. You missed " + count + " time");
+				System.out.println("The word is "+ tempWord+ ". You missed " + count + " time");
 				count = 0;
 				System.out.println("Do you want to guess another word? Enter y or n");
 				char flagString = inputScanner.next().charAt(0);
