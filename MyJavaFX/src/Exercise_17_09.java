@@ -115,15 +115,16 @@ public class Exercise_17_09 extends Application  {
 	}
 
 	public static void next(){
-		
+			
 		if (index != list.size() - 1) {
+			index++;
 			Exercise_17_09_Contact contact = list.get(index);
 			nameField.setText(contact.getName());
 			streetField.setText(contact.getStreet());
 			cityField.setText(contact.getCity());
 			stateField.setText(contact.getState());
 			zipField.setText(contact.getZip());
-			index++;
+			
 		} else {
 			return;
 		}
@@ -132,13 +133,14 @@ public class Exercise_17_09 extends Application  {
 
 	public static void previous() {
 		if (index != 0 && !list.isEmpty()) {
+			index--;
 			Exercise_17_09_Contact contact = list.get(index);
 			nameField.setText(contact.getName());
 			streetField.setText(contact.getStreet());
 			cityField.setText(contact.getCity());
 			stateField.setText(contact.getState());
 			zipField.setText(contact.getZip());
-			index--;
+			
 		} else {
 			return;
 		}
