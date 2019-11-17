@@ -168,8 +168,8 @@ public class Exercise_16_09 extends Application {
 				intersectionLabel.setText("Two rectangles intersect? No");
 			}
 
-			x2Field.setText(rectangle1.getX() + "");
-			y2Field.setText(rectangle1.getY() + "");
+			x1Field.setText(rectangle1.getX() + "");
+			y1Field.setText(rectangle1.getY() + "");
 
 		});
 
