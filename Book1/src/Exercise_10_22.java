@@ -23,8 +23,8 @@ public class Exercise_10_22 {
 		}
 		int size = end - begin;
 		char[] chars = new char[size];
-		for (int i = begin; i < chars.length; i++) {
-			chars[i] = this.chars[i];
+		for (int i = 0; i < chars.length; i++) {
+			chars[i] = this.chars[begin+i];
 		}
 		Exercise_10_22 exercise_10_22 = new Exercise_10_22(chars);
 		return exercise_10_22;
@@ -175,4 +175,5 @@ public class Exercise_10_22 {
 		Exercise_10_22 exercise_10_222 = new Exercise_10_22(charss);
 		System.out.println(exercise_10_222.equals(Exercise_10_22.valueOf(123)));
 	}
+	
 }
