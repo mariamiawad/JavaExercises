@@ -1,6 +1,10 @@
 
 public class Exercise_19_01_Stack<E> {
-	private E[] list = (E[]) new Object[10];
+	
+	private E[] list;
+	public Exercise_19_01_Stack() {
+		list = (E[]) new Object[10];
+	}
 	private int size = 0;
 
 	public int getSize() {
