@@ -134,12 +134,12 @@ public class MyArrayList<E> implements List<E> {
 		E[] newArray = null;
 
 		if (size <= 0.25 * capacity) {
-			newArray = (E[]) new Object[size];
+			newArray = (E[]) new Object[capacity/2];
 			for (int i = 0; i < newArray.length; i++) {
 				newArray[i] = arrayList[i];
 			}
 		} else if (size >= capacity) {
-			newArray = (E[]) new Object[size * 2];
+			newArray = (E[]) new Object[capacity * 2];
 			for (int i = 0; i < arrayList.length; i++) {
 				newArray[i] = arrayList[i];
 			}
