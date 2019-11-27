@@ -139,7 +139,7 @@ public class MyArrayList<E> implements List<E> {
 				newArray[i] = arrayList[i];
 			}
 		} else if (size >= capacity) {
-			newArray = (E[]) new Object[capacity * 2];
+			newArray = (E[]) new Object[size * 2];
 			for (int i = 0; i < arrayList.length; i++) {
 				newArray[i] = arrayList[i];
 			}
