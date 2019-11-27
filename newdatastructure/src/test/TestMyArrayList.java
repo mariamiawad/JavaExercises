@@ -18,6 +18,13 @@ public class TestMyArrayList {
 		arrayList.add(2);
 		assertEquals(arrayList.size(), 2);
 	}
+	@Test
+	public void size_AddingTwoIntegerNegative_ExpectedTwo() {
+		MyArrayList<Integer> arrayList = new MyArrayList<>();
+		arrayList.add(-1);
+		arrayList.add(-1);
+		assertEquals(arrayList.size(), 2);
+	}
 	@Test (expected = IndexOutOfBoundsException.class)
 	public void addAtIndex_IndexBigerThanSize_OutOfBoundsExeption() {
 		MyArrayList<Integer> arrayList = new MyArrayList<>();
@@ -40,6 +47,13 @@ public class TestMyArrayList {
 		arrayList.add(2);
 		assertEquals(arrayList.contains(2), true);
 	}
+	@Test
+	public void Contains_ContainsAnElementNegative_True() {
+		MyArrayList<Integer> arrayList = new MyArrayList<>();
+		arrayList.add(1);
+		arrayList.add(-2);
+		assertEquals(arrayList.contains(-2), true);
+	}
 
 	@Test
 	public void Contains_ContainsAnElement_False() {
@@ -47,6 +61,13 @@ public class TestMyArrayList {
 		arrayList.add(1);
 		arrayList.add(2);
 		assertEquals(arrayList.contains(4), false);
+	}
+	@Test
+	public void Contains_ContainsAnElementNegative_False() {
+		MyArrayList<Integer> arrayList = new MyArrayList<>();
+		arrayList.add(1);
+		arrayList.add(2);
+		assertEquals(arrayList.contains(-4), false);
 	}
 	@Test
 	public void Get_GetAnElement_Two() {
@@ -221,10 +242,20 @@ public class TestMyArrayList {
 		for (int i = 0; i <11; i++) {
 			arrayList.add(i);
 		}
+		
+		assertEquals(arrayList.size(),11);
+	}
+	@Test
+	public void Resize_FullArray_ResizeSmallerThanOriginalArrayDivideByTwo() {
+		MyArrayList<Integer> arrayList = new MyArrayList<Integer>();
+		for (int i = 0; i <11; i++) {
+			arrayList.add(i);
+		}
 		for (int i = 0; i < 6; i++) {
 			arrayList.remove(i);
 		}
+		
 		assertEquals(arrayList.size(),5);
 	}
-
+	
 }
