@@ -105,10 +105,12 @@ public class MyArrayList<E> implements List<E> {
 	@Override
 	public boolean remove(Object o) {
 		for (int i = 0; i < arrayList.length; i++) {
+			if(arrayList[i]!=null) {
 			if (arrayList[i].equals(o)) {
 				remove(i);
 				return true;
 			}
+		}
 		}
 		return false;
 	}
