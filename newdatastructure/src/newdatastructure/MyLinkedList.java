@@ -1,9 +1,15 @@
+package newdatastructure;
 
-class MyLinkedList<E> implements List<E> {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+import newdatastructure.MyArrayList.MyIterator;
+
+public class MyLinkedList<E> implements List<E> {
 
 	Node head;
 	Node tail;
-	int size;
+	int size = 0;
 
 	public class Node {
 		E data;
@@ -14,52 +20,48 @@ class MyLinkedList<E> implements List<E> {
 
 	@Override
 	public void add(E e) {
-		Node n = new Node();
-		n.data = e;
-		if (size == 0) {
-			head = n;
-			tail = head;
-		} else {
-			n.next = head;
-			head.previous = n;
-			head = n;
-
-		}
-		size++;
-
+		add(size, e);
 	}
 
 	@Override
 	public void add(int index, E element) {
+
 		if (index < 0 || index > size) {
 			throw new IndexOutOfBoundsException();
-		} else if (index == size || index == 0) {
-			add(element);
+		}
+		Node node = new Node();
+		Node currentNode = head;
+		Node currentNext;
+		node.data = element;
+		if (head == null) {
+			head = node;
+			tail = head;
+
+		} else if (size == index) {
+			node.previous = tail;
+			tail.next = node;
+			tail = node;
+		}
+		else if (index == 0) {
+			currentNode.previous = node;
+			node.next = currentNode;
+			head = node;
 		}
 
 		else {
-			Node addedNode = new Node();
-			addedNode.data = element;
+
 			int i = 0;
-			Node currentNode = head;
-			Node currentNext;
-			while (i <= index) {
+			while (i < index) {
 				currentNode = currentNode.next;
 				i++;
 			}
 			currentNext = currentNode.next;
-			if (currentNext == null) {
-				currentNode.next = addedNode;
-				addedNode.previous = currentNode;
-				size++;
-			} else {
-				addedNode.next = currentNext;
-				addedNode.previous = currentNode;
-				currentNode.next = addedNode;
-				currentNext.previous = addedNode;
-				size++;
-			}
+			currentNode.next = node;
+			node.previous = currentNode;
+			node.next = currentNext;
+			currentNext.previous = node;
 		}
+		size++;
 	}
 
 	@Override
@@ -76,18 +78,20 @@ class MyLinkedList<E> implements List<E> {
 
 	@Override
 	public E get(int index) {
-		Node n = new Node();
-		n = head;
+		
 		if (index >= size || index < 0) {
 			throw new IndexOutOfBoundsException();
 		}
+		Node n = head;
+		E data = null;
 		for (int i = 0; i <= index; i++) {
 			if (i == index) {
-				return n.data;
+				data= n.data;
+				break;
 			}
 			n = n.next;
 		}
-		return null;
+		return data;
 	}
 
 	@Override
@@ -115,31 +119,43 @@ class MyLinkedList<E> implements List<E> {
 	public E remove(int index) {
 		Node currentNode = head;
 		Node nextNode;
-		Node removedNode;
+		Node removedNode = null;
 		if (index >= size || index < 0) {
 			throw new IndexOutOfBoundsException();
 		}
-		if (index == 0) {
+//		if (size == 1  ) {
+//			removedNode = head;
+//			head.next = null;
+//			head.previous = null;
+//			head = null;
+//		}
+		 if (index == 0) {
 			removedNode = head;
 			nextNode = head.next;
-			nextNode.previous = null;
-			size--;
+			head = nextNode;
 
-		} else {
-			for (int i = 0; i <= index; i++) {
-				removedNode = currentNode.next;
-				nextNode = removedNode.next;
-				if (i == index) {
+		} else if (index == size - 1) {
+			removedNode = tail;
+			nextNode = tail.previous;
+			nextNode.next = null;
+			tail = nextNode;
+		}
+
+		else {
+			for (int i = 0; i <index; i++) {
+				if (i == index-1) {
+					removedNode = currentNode.next;
+					nextNode = removedNode.next;
 					currentNode.next = nextNode;
 					nextNode.previous = currentNode;
 
 				}
 				currentNode = currentNode.next;
-				size--;
+
 			}
 		}
-
-		return null;
+		size--;
+		return removedNode.data;
 	}
 
 	@Override
@@ -148,29 +164,9 @@ class MyLinkedList<E> implements List<E> {
 			return false;
 		}
 		Node currentNode = head;
-		Node newCurrentNode;
-		Node previousCurrentNode;
-
 		for (int i = 0; i < size; i++) {
 			if (o.equals(currentNode.data)) {
-				if (currentNode.next == null ) {
-					newCurrentNode = currentNode.previous;
-					newCurrentNode.next =null;
-
-				} 
-				else if (currentNode == head){
-					newCurrentNode = currentNode.next;
-					newCurrentNode.previous = null;
-				}
-				else {
-					previousCurrentNode = currentNode.previous;
-					newCurrentNode = currentNode.next;
-					previousCurrentNode.next = newCurrentNode;
-					newCurrentNode.previous = previousCurrentNode;
-					
-
-				}
-				size--;
+				remove(i);
 				return true;
 			}
 			currentNode = currentNode.next;
@@ -191,8 +187,9 @@ class MyLinkedList<E> implements List<E> {
 				n.data = element;
 				break;
 			}
+			n = n.next;
 		}
-		return null;
+		return element;
 	}
 
 	@Override
@@ -202,44 +199,75 @@ class MyLinkedList<E> implements List<E> {
 	}
 
 	// Inserts the specified element at the beginning of this list.
-	void addFirst(E e) {
+	public void addFirst(E e) {
 		add(0, e);
 	}
 
 	// Appends the specified element to the end of this list.
-	void addLast(E e) {
+	public void addLast(E e) {
 
 		add(size, e);
 
 	}
 
 	// Returns the first element in this list.
-	E getFirst() {
+	public E getFirst() {
+		if (head == null) {
+			throw new NoSuchElementException();
+		}
 		return head.data;
 	}
 
 	// Returns the last element in this list.
-	E getLast() {
+	public E getLast() {
+		if (tail==null) {
+			throw new NoSuchElementException();
+		}
 		return tail.data;
 	}
 
 	// Removes and returns the first element from this list.
-	E removeFirst() {
-		remove(0);
-		return null;
+	public E removeFirst() {
+		if(head == null) {
+			throw new NoSuchElementException();
+		}
+		return remove(0);
 	}
 
 	// Removes and returns the last element from this list.
-	E removeLast() {
-		int index = 0;
-		Node currentNode = head;
-		for (int i = 0; i < size; i++) {
-			currentNode = currentNode.next;
-			index = i;
+	public E removeLast() {
+		if(tail == null) {
+			throw new NoSuchElementException();
 		}
-		remove(index);
+		
 
-		return null;
+		return remove(size-1);
 	}
+	public MyIterator<E> iterator() {
+		return new MyIterator();
+	}
+
+	public class MyIterator<E> implements Iterator<E> {
+		int indexIterator = 0;
+
+		public MyIterator() {
+		}
+
+		@Override
+		public boolean hasNext() {
+			return indexIterator < size;
+		}
+
+		@Override
+		public E next() {
+			if (!hasNext()) {
+				throw new NoSuchElementException();
+			}
+
+			return (E) head.next.data;
+
+		}
+	}
+
 
 }
