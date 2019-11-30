@@ -41,8 +41,7 @@ public class MyLinkedList<E> implements List<E> {
 			node.previous = tail;
 			tail.next = node;
 			tail = node;
-		}
-		else if (index == 0) {
+		} else if (index == 0) {
 			currentNode.previous = node;
 			node.next = currentNode;
 			head = node;
@@ -78,7 +77,7 @@ public class MyLinkedList<E> implements List<E> {
 
 	@Override
 	public E get(int index) {
-		
+
 		if (index >= size || index < 0) {
 			throw new IndexOutOfBoundsException();
 		}
@@ -86,7 +85,7 @@ public class MyLinkedList<E> implements List<E> {
 		E data = null;
 		for (int i = 0; i <= index; i++) {
 			if (i == index) {
-				data= n.data;
+				data = n.data;
 				break;
 			}
 			n = n.next;
@@ -129,7 +128,7 @@ public class MyLinkedList<E> implements List<E> {
 //			head.previous = null;
 //			head = null;
 //		}
-		 if (index == 0) {
+		if (index == 0) {
 			removedNode = head;
 			nextNode = head.next;
 			head = nextNode;
@@ -142,8 +141,8 @@ public class MyLinkedList<E> implements List<E> {
 		}
 
 		else {
-			for (int i = 0; i <index; i++) {
-				if (i == index-1) {
+			for (int i = 0; i < index; i++) {
+				if (i == index - 1) {
 					removedNode = currentNode.next;
 					nextNode = removedNode.next;
 					currentNode.next = nextNode;
@@ -220,7 +219,7 @@ public class MyLinkedList<E> implements List<E> {
 
 	// Returns the last element in this list.
 	public E getLast() {
-		if (tail==null) {
+		if (tail == null) {
 			throw new NoSuchElementException();
 		}
 		return tail.data;
@@ -228,7 +227,7 @@ public class MyLinkedList<E> implements List<E> {
 
 	// Removes and returns the first element from this list.
 	public E removeFirst() {
-		if(head == null) {
+		if (head == null) {
 			throw new NoSuchElementException();
 		}
 		return remove(0);
@@ -236,20 +235,21 @@ public class MyLinkedList<E> implements List<E> {
 
 	// Removes and returns the last element from this list.
 	public E removeLast() {
-		if(tail == null) {
+		if (tail == null) {
 			throw new NoSuchElementException();
 		}
-		
 
-		return remove(size-1);
+		return remove(size - 1);
 	}
-	public MyIterator<E> iterator() {
+
+	public MyIterator iterator() {
 		return new MyIterator();
 	}
 
-	public class MyIterator<E> implements Iterator<E> {
+	public class MyIterator implements Iterator<E> {
 		int indexIterator = 0;
-
+		Node node = head;
+		Node prevNode ;
 		public MyIterator() {
 		}
 
@@ -263,11 +263,13 @@ public class MyLinkedList<E> implements List<E> {
 			if (!hasNext()) {
 				throw new NoSuchElementException();
 			}
-
-			return (E) head.next.data;
-
+			
+			prevNode = node;
+			node = node.next;
+			indexIterator++;
+			return prevNode.data;
 		}
-	}
 
+	}
 
 }

@@ -3,6 +3,9 @@ package newdatastructure;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import newdatastructure.MyLinkedList.MyIterator;
+import newdatastructure.MyLinkedList.Node;
+
 public class MyArrayList<E> implements List<E> {
 
 	static int capacity = 10;
@@ -152,20 +155,22 @@ public class MyArrayList<E> implements List<E> {
 		}
 
 	}
-
-	public MyIterator<E> iterator() {
+	public MyIterator iterator() {
 		return new MyIterator();
 	}
-
-	public class MyIterator<E> implements Iterator<E> {
+	public class MyIterator implements Iterator<E> {
 		int indexIterator = 0;
-
+		E data = arrayList[0];
+		E previousData;
 		public MyIterator() {
 		}
 
 		@Override
 		public boolean hasNext() {
-			return indexIterator < size;
+			if (indexIterator<size) {
+				return arrayList[indexIterator]!=null; 
+			}
+			return indexIterator<size;
 		}
 
 		@Override
@@ -173,10 +178,17 @@ public class MyArrayList<E> implements List<E> {
 			if (!hasNext()) {
 				throw new NoSuchElementException();
 			}
-
-			return (E) arrayList[indexIterator++];
-
+			
+			previousData = data;
+			
+			indexIterator++;
+			if (hasNext()) {
+				data = arrayList[indexIterator];
+			}
+			
+			return previousData;
 		}
+
 	}
 
 }

@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 import org.junit.Test;
 
 import newdatastructure.MyArrayList;
+import newdatastructure.MyLinkedList;
 import newdatastructure.MyArrayList.MyIterator;
 
 public class TestMyArrayList {
@@ -201,21 +202,21 @@ public class TestMyArrayList {
 		MyArrayList<Integer> arrayList = new MyArrayList<>();
 		arrayList.add(1);
 		arrayList.add(2);
-		MyArrayList<Integer>.MyIterator<Integer> iterator = arrayList.iterator();
+		MyArrayList<Integer>.MyIterator iterator = arrayList.iterator();
 		assertEquals(iterator.hasNext(), true);
 	}
 	@Test
 	public void hasNext_ArrayHasNext_False() {
 		MyArrayList<Integer> arrayList = new MyArrayList<>();
 		
-		MyArrayList<Integer>.MyIterator<Integer>  i = arrayList.iterator();
+		MyArrayList<Integer>.MyIterator  i = arrayList.iterator();
 		assertEquals(i.hasNext(),false); 
 	}
 	@Test (expected = NoSuchElementException.class)
 	public void hasNext_ArrayNext_NoSuchElementException() {
 		MyArrayList<Integer> arrayList = new MyArrayList<>();
 		
-		MyArrayList<Integer>.MyIterator<Integer>  i = arrayList.iterator();
+		MyArrayList<Integer>.MyIterator  i = arrayList.iterator();
 		i.next();
 	}
 	
@@ -225,7 +226,7 @@ public class TestMyArrayList {
 		MyArrayList<Integer> arrayList = new MyArrayList<>();
 		arrayList.add(1);
 		arrayList.add(2);
-		MyArrayList<Integer>.MyIterator<Integer>  i = arrayList.iterator();
+		MyArrayList<Integer>.MyIterator  i = arrayList.iterator();
 		assertEquals(i.next(), Integer.valueOf(1));
 		assertEquals(i.next(), Integer.valueOf(2));
 	}
@@ -233,7 +234,7 @@ public class TestMyArrayList {
 	public void hasNext_ArrayNext_One() {
 		MyArrayList<Integer> arrayList = new MyArrayList<>();
 		arrayList.add(1);
-		MyArrayList<Integer>.MyIterator<Integer>  i = arrayList.iterator();
+		MyArrayList<Integer>.MyIterator  i = arrayList.iterator();
 		assertEquals(i.next(), Integer.valueOf(1));
 	}
 	@Test
@@ -256,6 +257,68 @@ public class TestMyArrayList {
 		}
 		
 		assertEquals(arrayList.size(),5);
+	}
+	@Test
+	public void Itreator_OverOneElement_One() {
+		MyLinkedList<Integer> list = new MyLinkedList<>();
+		list.add(1);
+		MyLinkedList<Integer>.MyIterator itrIterator = list.iterator();
+		while (itrIterator.hasNext()) {
+			System.out.println(itrIterator.next());
+		}
+		assertEquals(list.size(), 1);
+	}
+
+	@Test
+	public void Itreator_TwoElement_Two() {
+		MyArrayList<Integer> list = new MyArrayList<>();
+		list.add(1);
+		list.add(2);
+		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
+		while (itrIterator.hasNext()) {
+			System.out.println(itrIterator.next());
+		}
+		assertEquals(list.size(), 2);
+	}
+	@Test
+	public void Itreator_ThreeElement_Three() {
+		MyArrayList<Integer> list = new MyArrayList<>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
+		while (itrIterator.hasNext()) {
+			System.out.println(itrIterator.next());
+		}
+		assertEquals(list.size(), 3);
+	}
+	@Test
+	public void Itreator_TenElement_Ten() {
+		MyArrayList<Integer> list = new MyArrayList<>();
+		for (int i = 1; i < 11; i++) {
+			list.add(i);
+		}
+		
+		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
+		while (itrIterator.hasNext()) {
+			System.out.println(itrIterator.next());
+		}
+		assertEquals(list.size(), 10);
+	}
+	@Test
+	public void ItreatorHasNext_HasNextElement_False() {
+		MyArrayList<Integer> list = new MyArrayList<>();
+		
+		
+		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
+		
+		assertEquals(itrIterator.hasNext(), false);
+	}
+	@Test(expected = NoSuchElementException.class)
+	public void Itreator_EmptyList_NoSuchElementException() {
+		MyArrayList<Integer> list = new MyArrayList<>();
+		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
+		itrIterator.next();
 	}
 	
 }
