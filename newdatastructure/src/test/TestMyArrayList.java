@@ -11,7 +11,13 @@ import arraylistlinkedlist.MyLinkedList;
 import arraylistlinkedlist.MyArrayList.MyIterator;
 
 public class TestMyArrayList {
-
+	@Test
+	public void size_AddingOneInteger_ExpectedOne() {
+		MyArrayList<Integer> arrayList = new MyArrayList<>();
+		arrayList.add(1);
+		arrayList.add(2);
+		assertEquals(arrayList.size(), 2);
+	}
 	@Test
 	public void size_AddingTwoInteger_ExpectedTwo() {
 		MyArrayList<Integer> arrayList = new MyArrayList<>();

@@ -32,7 +32,7 @@ public class MyArrayList<E> implements List<E> {
 		if (index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException();
 		}
-		if (size >= capacity) {
+		if (size >= capacity ) {
 			resize();
 		}
 		arrayList[index] = element;

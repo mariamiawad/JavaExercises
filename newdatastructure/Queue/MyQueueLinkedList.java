@@ -1,11 +1,11 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import newdatastructure.MyLinkedList;
+import arraylistlinkedlist.MyLinkedList;
 
 public class MyQueueLinkedList<E> {
 	private MyLinkedList<E> linkedList = new MyLinkedList<>();
-
+	
 	public void enqueue(E element) {
 		linkedList.add(element);
 	}
