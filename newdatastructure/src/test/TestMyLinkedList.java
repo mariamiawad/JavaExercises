@@ -6,8 +6,8 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-import newdatastructure.MyLinkedList;
-import newdatastructure.MyLinkedList.MyIterator;
+import arraylistlinkedlist.MyLinkedList;
+import arraylistlinkedlist.MyLinkedList.MyIterator;
 
 public class TestMyLinkedList {
 

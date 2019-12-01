@@ -6,9 +6,9 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-import newdatastructure.MyArrayList;
-import newdatastructure.MyLinkedList;
-import newdatastructure.MyArrayList.MyIterator;
+import arraylistlinkedlist.MyArrayList;
+import arraylistlinkedlist.MyLinkedList;
+import arraylistlinkedlist.MyArrayList.MyIterator;
 
 public class TestMyArrayList {
 
@@ -320,5 +320,23 @@ public class TestMyArrayList {
 		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
 		itrIterator.next();
 	}
-	
+	@Test 
+	public void testResize_AddElevenElements_ReturnSizeEleven() {
+		MyArrayList<Integer> list = new MyArrayList<>();
+		for (int i = 1; i < 12; i++) {
+			list.add(i);
+		}
+		assertEquals(11, list.size());
+	}
+	@Test 
+	public void testResize_AddElevenElementsRemoveAll_ReturnSizeZero() {
+		MyArrayList<Integer> list = new MyArrayList<>();
+		for (int i = 1; i < 21; i++) {
+			list.add(i);
+		}
+		for (int i = 0; i < 20; i++) {
+			list.remove(0);
+		}
+		assertEquals(0, list.size());
+	}
 }

@@ -1,4 +1,4 @@
-package newdatastructure;
+package arraylistlinkedlist;
 
 public interface List<E> {
 

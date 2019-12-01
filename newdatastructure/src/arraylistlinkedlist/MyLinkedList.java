@@ -1,9 +1,9 @@
-package newdatastructure;
+package arraylistlinkedlist;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import newdatastructure.MyArrayList.MyIterator;
+import arraylistlinkedlist.MyArrayList.MyIterator;
 
 public class MyLinkedList<E> implements List<E> {
 

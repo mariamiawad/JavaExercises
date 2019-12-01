@@ -1,13 +1,13 @@
-package newdatastructure;
+package arraylistlinkedlist;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import newdatastructure.MyLinkedList.MyIterator;
-import newdatastructure.MyLinkedList.Node;
+import arraylistlinkedlist.MyLinkedList.MyIterator;
+import arraylistlinkedlist.MyLinkedList.Node;
 
 public class MyArrayList<E> implements List<E> {
-
+	private int INITIAL_CAPACITY = 10;
 	static int capacity = 10;
 	E[] arrayList;
 	int size = 0;;
@@ -80,25 +80,24 @@ public class MyArrayList<E> implements List<E> {
 		if (index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException();
 		}
+		E[] newArray = (E[]) new Object[arrayList.length - 1];
 		int ind = -1;
 		E returnE = null;
-		for (int i = index; i < arrayList.length; i++) {
-			if (i == index) {
-				ind = i;
-				returnE = arrayList[i];
-				size--;
-				break;
-				
-			}
+		for (int i = 0; i < index; i++) {
+			newArray[i] = arrayList[i];
+		}
 
+		ind = index;
+		returnE = arrayList[index];
+		size--;
+
+		if (ind > -1) {
+			for (int i = ind; i < newArray.length; i++) {
+				newArray[i] = arrayList[i + 1];
+			}
+			this.arrayList = newArray;
 		}
-		
-		if (ind>-1) {
-			for (int i = ind; i < arrayList.length-1; i++) {
-				arrayList[i]= arrayList[i+1];
-			}	
-		}
-		
+
 		if (size <= 0.25 * capacity) {
 			resize();
 		}
@@ -108,12 +107,12 @@ public class MyArrayList<E> implements List<E> {
 	@Override
 	public boolean remove(Object o) {
 		for (int i = 0; i < arrayList.length; i++) {
-			if(arrayList[i]!=null) {
-			if (arrayList[i].equals(o)) {
-				remove(i);
-				return true;
+			if (arrayList[i] != null) {
+				if (arrayList[i].equals(o)) {
+					remove(i);
+					return true;
+				}
 			}
-		}
 		}
 		return false;
 	}
@@ -135,12 +134,12 @@ public class MyArrayList<E> implements List<E> {
 
 	}
 
-	public void resize() {
+	private void resize() {
 		E[] newArray = null;
 
-		if (size <= 0.25 * capacity) {
-			newArray = (E[]) new Object[capacity/2];
-			for (int i = 0; i < newArray.length; i++) {
+		if (size <= 0.25 * capacity && capacity > INITIAL_CAPACITY) {
+			newArray = (E[]) new Object[capacity / 2];
+			for (int i = 0; i < arrayList.length&& i<newArray.length; i++) {
 				newArray[i] = arrayList[i];
 			}
 		} else if (size >= capacity) {
@@ -149,28 +148,32 @@ public class MyArrayList<E> implements List<E> {
 				newArray[i] = arrayList[i];
 			}
 		}
-		if (size >= 0.25 * capacity || size >= capacity) {
+		if ((size <= 0.25 * capacity &&capacity > INITIAL_CAPACITY   ) || size >= capacity) {
 			this.arrayList = newArray;
+			if(capacity > INITIAL_CAPACITY  || size <= capacity)
 			this.capacity = arrayList.length;
 		}
 
 	}
+
 	public MyIterator iterator() {
 		return new MyIterator();
 	}
+
 	public class MyIterator implements Iterator<E> {
 		int indexIterator = 0;
 		E data = arrayList[0];
 		E previousData;
+
 		public MyIterator() {
 		}
 
 		@Override
 		public boolean hasNext() {
-			if (indexIterator<size) {
-				return arrayList[indexIterator]!=null; 
+			if (indexIterator < size) {
+				return arrayList[indexIterator] != null;
 			}
-			return indexIterator<size;
+			return indexIterator < size;
 		}
 
 		@Override
@@ -178,14 +181,14 @@ public class MyArrayList<E> implements List<E> {
 			if (!hasNext()) {
 				throw new NoSuchElementException();
 			}
-			
+
 			previousData = data;
-			
+
 			indexIterator++;
 			if (hasNext()) {
 				data = arrayList[indexIterator];
 			}
-			
+
 			return previousData;
 		}
 
