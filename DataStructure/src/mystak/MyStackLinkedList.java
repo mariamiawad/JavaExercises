@@ -26,6 +26,9 @@ public class MyStackLinkedList<E>{
 		return temp.data;
 	}
 	public E peek (){
+		if(top == null) {
+			throw new NoSuchElementException("Stack is empty");
+		}
 		return top.data;
 	}
 	public int size(){

@@ -4,8 +4,6 @@ import java.util.Map.Entry;
 import javax.print.attribute.Size2DSyntax;
 import javax.swing.RootPaneContainer;
 import javax.swing.text.TabableView;
-
-import org.omg.CORBA.Current;
 import org.w3c.dom.ls.LSException;
 
 import java.io.*;
