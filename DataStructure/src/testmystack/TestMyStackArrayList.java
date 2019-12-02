@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-import myStak.MyStackArrayList;
+import mystak.MyStackArrayList;
 
 public class TestMyStackArrayList {
 

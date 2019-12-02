@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-import myStak.MyStackLinkedList;
+import mystak.MyStackLinkedList;
 
 public class TestMyStackLinkedList {
 
