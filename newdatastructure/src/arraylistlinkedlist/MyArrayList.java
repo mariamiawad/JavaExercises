@@ -3,9 +3,6 @@ package arraylistlinkedlist;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import arraylistlinkedlist.MyLinkedList.MyIterator;
-import arraylistlinkedlist.MyLinkedList.Node;
-
 public class MyArrayList<E> implements List<E> {
 	private int INITIAL_CAPACITY = 10;
 	static int capacity = 10;
@@ -32,7 +29,7 @@ public class MyArrayList<E> implements List<E> {
 		if (index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException();
 		}
-		if (size >= capacity ) {
+		if (size >= capacity) {
 			resize();
 		}
 		arrayList[index] = element;
@@ -139,7 +136,7 @@ public class MyArrayList<E> implements List<E> {
 
 		if (size <= 0.25 * capacity && capacity > INITIAL_CAPACITY) {
 			newArray = (E[]) new Object[capacity / 2];
-			for (int i = 0; i < arrayList.length&& i<newArray.length; i++) {
+			for (int i = 0; i < arrayList.length && i < newArray.length; i++) {
 				newArray[i] = arrayList[i];
 			}
 		} else if (size >= capacity) {
@@ -148,10 +145,10 @@ public class MyArrayList<E> implements List<E> {
 				newArray[i] = arrayList[i];
 			}
 		}
-		if ((size <= 0.25 * capacity &&capacity > INITIAL_CAPACITY   ) || size >= capacity) {
+		if ((size <= 0.25 * capacity && capacity > INITIAL_CAPACITY) || size >= capacity) {
 			this.arrayList = newArray;
-			if(capacity > INITIAL_CAPACITY  || size <= capacity)
-			this.capacity = arrayList.length;
+			if (capacity > INITIAL_CAPACITY || size <= capacity)
+				this.capacity = arrayList.length;
 		}
 
 	}
@@ -162,10 +159,19 @@ public class MyArrayList<E> implements List<E> {
 
 	public class MyIterator implements Iterator<E> {
 		int indexIterator = 0;
-		E data = arrayList[0];
+
+		E data;
 		E previousData;
 
 		public MyIterator() {
+		}
+
+		private boolean isData() {
+			if (arrayList[0] != null) {
+
+				return true;
+			}
+			return false;
 		}
 
 		@Override
@@ -181,7 +187,9 @@ public class MyArrayList<E> implements List<E> {
 			if (!hasNext()) {
 				throw new NoSuchElementException();
 			}
-
+			if (isData() && indexIterator == 0) {
+				data = arrayList[0];
+			}
 			previousData = data;
 
 			indexIterator++;

@@ -15,7 +15,7 @@ public class MyQueueLinkedList<E> {
 			throw new NoSuchElementException("Queue is empty");
 		}
 		E data = linkedList.getFirst();
-		linkedList.remove(data);
+		linkedList.remove(0);
 		return data;
 	}
 

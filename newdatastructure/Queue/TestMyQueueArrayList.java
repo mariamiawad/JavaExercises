@@ -92,6 +92,31 @@ public class TestMyQueueArrayList {
 		assertEquals(Integer.valueOf(2), list.dequeue());
 		assertEquals(0, list.size());
 	}
+	@Test
+	public void testDequeue_TwentyOneElementsSuccessiveEnqueueAndDequeue_ReturnSizeZero() {
+		MyQueueArrayList<Integer> list = new MyQueueArrayList<>();
+		for (int i = 1; i < 21; i++) {
+			list.enqueue(i);
+		}
+		list.enqueue(1);
+		assertEquals(Integer.valueOf(1), list.dequeue());
+		assertEquals(Integer.valueOf(2), list.dequeue());
+		assertEquals(Integer.valueOf(3), list.dequeue());
+		assertEquals(Integer.valueOf(4), list.dequeue());
+		assertEquals(Integer.valueOf(5), list.dequeue());
+		assertEquals(Integer.valueOf(6), list.dequeue());
+		list.enqueue(1);
+		list.enqueue(1);
+		list.enqueue(1);
+		list.enqueue(1);
+		list.enqueue(2);
+		for (int i = 6; i < 20; i++) {
+			assertEquals(Integer.valueOf(i+1),list.dequeue());
+		}
+		assertEquals(Integer.valueOf(1), list.dequeue());
+		assertEquals(Integer.valueOf(1), list.dequeue());
+		assertEquals(4, list.size());
+	}
 	@Test(expected = NoSuchElementException.class)
 	public void testDequeue_EmptyQueue_NoSuchElementException() {
 		MyQueueArrayList<Integer> list = new MyQueueArrayList<>();

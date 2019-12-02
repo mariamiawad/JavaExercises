@@ -266,9 +266,9 @@ public class TestMyArrayList {
 	}
 	@Test
 	public void Itreator_OverOneElement_One() {
-		MyLinkedList<Integer> list = new MyLinkedList<>();
+		MyArrayList<Integer> list = new MyArrayList<>();
 		list.add(1);
-		MyLinkedList<Integer>.MyIterator itrIterator = list.iterator();
+		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
 		while (itrIterator.hasNext()) {
 			System.out.println(itrIterator.next());
 		}
