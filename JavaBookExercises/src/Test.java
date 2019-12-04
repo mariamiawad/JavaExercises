@@ -1,170 +1,124 @@
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
+import chapter10.Exercise_10_27;
 
-public class Test extends Number implements Comparable<Test> {
-    // Data fields for numerator and denominator
-    private BigDecimal numerator = BigDecimal.ZERO;
-    private BigDecimal denominator = BigDecimal.ONE;
+public class Test {
 
-    /** Construct a rational with default properties */
-    public Test() {
-        this(BigDecimal.ZERO, BigDecimal.ONE);
+    private char[] buffer;
+    public Test(char[] chars) {
+        buffer = new char[chars.length];
+
+        System.arraycopy(chars, 0, buffer, 0, chars.length);
     }
 
-    /** Construct a rational with specified numerator and denominator */
-    public Test(BigDecimal numerator, BigDecimal denominator) {
-        BigDecimal gcd = gcd(numerator, denominator);
-        this.numerator = ((denominator.compareTo(BigDecimal.ZERO) > 0) ? BigDecimal.ONE : new BigDecimal(-1)).multiply(numerator).divide(gcd);
-        this.denominator = denominator.abs().divide(gcd);
+    public Test(String s) {
+        this(s.toCharArray());
     }
 
-    public Test(String decimal) {
+    public Test append(int i) {
 
-        int index = (decimal.contains(".")) ? decimal.indexOf('.') : decimal.indexOf('/');
-        BigDecimal d;
-        BigDecimal n;
-        // if string is in decimal form
-        if (decimal.contains(".")) {
-            int power = decimal.substring(index + 1, decimal.length()).length();
-            d = new BigDecimal(Math.pow(10,power));
-            n = new BigDecimal(new StringBuilder(decimal).deleteCharAt(index).toString());
-        } else {
-            // if string contains '/'
-            n = new BigDecimal(decimal.substring(0, index));
-            d = new BigDecimal(decimal.substring(index + 1, decimal.length()));
+        String temp = "";
+        while (i > 0) {
+            temp = i % 10 + temp;
+            i /= 10;
         }
-
-        BigDecimal gcd = gcd(n, d);
-        this.numerator = ((d.compareTo(BigDecimal.ZERO) > 0) ? BigDecimal.ONE : new BigDecimal(-1)).multiply(n).divide(gcd);
-        this.denominator = d.abs().divide(gcd);
-
+        return new Test(toString() + temp);
     }
 
-    /** Find GCD of two numbers */
-    private static BigDecimal gcd(BigDecimal n, BigDecimal d) {
-        BigDecimal n1 = n.abs();
-        BigDecimal n2 = d.abs();
+    public Test append(Test s) {
 
-        BigDecimal remainder = n1.remainder(n2);
-        while (remainder.compareTo(BigDecimal.ZERO) > 0) {
-            n1 = n2;
-            n2 = remainder;
-            remainder = n1.remainder(n2);
-        }
-
-
-
-
-        return n2;
+        return new Test(toString() + s.toString());
     }
 
-    /** Return numerator */
-    public BigDecimal getNumerator() {
-        return numerator;
-    }
-
-    /** Return denominator */
-    public BigDecimal getDenominator() {
-        return denominator;
-    }
-
-    /** Add a rational number to this rational */
-    public Test add(Test secondBigRational) {
-        BigDecimal n1 = numerator.multiply(secondBigRational.getDenominator());
-        BigDecimal n2 = denominator.multiply(secondBigRational.getNumerator());
-        BigDecimal n = n1.add(n2);
-
-        BigDecimal d = denominator.multiply(secondBigRational.getDenominator());
-        return new Test(n, d);
-    }
-
-    /** Subtract a rational number from this rational */
-    public Test subtract(Test secondBigRational) {
-        BigDecimal n1 = numerator.multiply(secondBigRational.getDenominator());
-        BigDecimal n2 = denominator.multiply(secondBigRational.getNumerator());
-        BigDecimal n = n1.subtract(n2);
-
-        BigDecimal d = denominator.multiply(secondBigRational.getDenominator());
-        return new Test(n, d);
-    }
-
-    /** Multiply a rational number to this rational */
-    public Test multiply(Test secondBigRational) {
-        BigDecimal n = numerator.multiply(secondBigRational.getNumerator());
-        BigDecimal d = denominator.multiply(secondBigRational.getDenominator());
-        return new Test(n, d);
-    }
-
-    /** Divide a rational number from this rational */
-    public Test divide(Test secondBigRational) {
-        BigDecimal n = numerator.multiply(secondBigRational.getDenominator());
-        BigDecimal d = denominator.multiply(secondBigRational.numerator);
-        return new Test(n, d);
-    }
-
-    @Override
     public String toString() {
-        if (denominator.equals(BigDecimal.ONE))
-            return numerator + "";
-       else
-            return numerator + "/" + denominator;
+        return new String(buffer);
     }
 
-    @Override // Override the equals method in the Object class
-    public boolean equals(Object other) {
-        if ((this.subtract((Test)(other))).getNumerator().equals(BigDecimal.ZERO))
-            return true;
-        else
-            return false;
+    public int length() {
+        return buffer.length;
     }
 
-    @Override // Implement the abstract intValue method in Number
-    public int intValue() {
-        return (int)doubleValue();
+    public char charAt(int i) {
+        return buffer[i];
     }
 
-    @Override // Implement the abstract floatValue method in Number
-    public float floatValue() {
-        return (float)doubleValue();
+    public Test toLowerCase() {
+        char[] lower = new char[buffer.length];
+
+        for (int i = 0; i < buffer.length; i++) {
+            char old = buffer[i];
+            if (old >= 'A' && old <= 'Z') {
+                lower[i] = (char) (old - 'A' + 'a');
+            } else {
+                lower[i] = old;
+            }
+        }
+        return new Test(lower);
     }
 
-    @Override // Implement the doubleValue method in Number
-    public double doubleValue() {
-        return numerator.divide(denominator).doubleValue();
+    public Test substring(int begin, int end) {
+
+        char[] temp = new char[end - begin];
+        for (int i = begin; i < end; i++) {
+            temp[i - begin] = buffer[i];
+        }
+
+        return new Test(temp);
     }
 
-    public BigDecimal bigDecimalDouble() {
-        return numerator.divide(denominator, 100, RoundingMode.HALF_DOWN);
+    public Test insert(int offset, Test s) {
+        char[] temp = new char[s.length() + buffer.length];
+        for (int i = 0; i < offset; i++) {
+            temp[i] = buffer[i];
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            temp[offset + i] = s.charAt(i);
+
+        }
+        for (int i = offset + s.length(); i < temp.length; i++) {
+            temp[i] = buffer[offset++];
+        }
+
+        return new Test(temp);
     }
 
-    @Override // Implement the abstract longValue method in Number
-    public long longValue() {
-        return (long)doubleValue();
+    public Test reverse() {
+        char[] reverse = new char[buffer.length];
+
+        int start = 0;
+        for (int i = buffer.length - 1; i >= 0; i--) {
+            reverse[i] = buffer[start++];
+        }
+        return new Test(reverse);
     }
 
-    @Override // Implement the compareTo method in Comparable
-    public int compareTo(Test o) {
-        if (this.subtract(o).getNumerator().compareTo(BigDecimal.ZERO) > 0)
-            return 1;
-        else if (this.subtract(o).getNumerator().compareTo(BigDecimal.ZERO) < 0)
-            return -1;
-        else
-            return 0;
+    public Test substring(int begin) {
+        return substring(begin, buffer.length);
+    }
+
+    public Test toUpperCase() {
+
+        char[] temp = new char[buffer.length];
+
+        for (int i = 0; i < buffer.length; i++) {
+            char ch = buffer[i];
+            if (ch >= 'a' && ch <= 'z') {
+                temp[i] = (char) (ch - 'a' + 'A');
+            } else {
+                temp[i] = ch;
+            }
+        }
+        return new Test(temp);
     }
     public static void main(String[] args) {
 
-    	ArrayList<Integer> list = new ArrayList<>();
-    	for (int i = 1; i < 21; i++) {
-			list.add(i);
-		}
-    	for (int i = 0; i < 20; i++) {
-    		int size = list.size();
-			list.remove(0);
-		}
-		
+        Exercise_10_27 s = new Exercise_10_27("ButtonDemo");
+        System.out.println(s.toString());
+        System.out.println(s.append(100).toString());
+        System.out.println(s.toString());
+        System.out.println("lowercase = " + s.toLowerCase());
+        System.out.println("substring 0 3: " + s.substring(0, 3));
+
     }
+
 
 }
