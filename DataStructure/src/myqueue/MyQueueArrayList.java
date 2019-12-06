@@ -1,6 +1,8 @@
 package myqueue;
 import java.util.*;
 
+import arraylistlinkedlist.MyArrayList.MyIterator;
+
 public class MyQueueArrayList<E> {
 	private int head;
 	private int tail;
@@ -65,5 +67,53 @@ public class MyQueueArrayList<E> {
 
 	public int size() {
 		return size;
+	}
+	public MyIterator iterator() {
+		return new MyIterator();
+	}
+
+	public class MyIterator implements Iterator<E> {
+		int indexIterator = 0;
+
+		E data;
+		E previousData;
+
+		public MyIterator() {
+		}
+
+		private boolean isData() {
+			if (elements[0] != null) {
+
+				return true;
+			}
+			return false;
+		}
+
+		@Override
+		public boolean hasNext() {
+			if (indexIterator < size) {
+				return elements[indexIterator] != null;
+			}
+			return indexIterator < size;
+		}
+
+		@Override
+		public E next() {
+			if (!hasNext()) {
+				throw new NoSuchElementException();
+			}
+			if (isData() && indexIterator == 0) {
+				data = elements[0];
+			}
+			previousData = data;
+
+			indexIterator++;
+			if (hasNext()) {
+				data = elements[indexIterator];
+			}
+
+			return previousData;
+		}
+
 	}
 }
