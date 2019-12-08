@@ -22,7 +22,7 @@ public static void main(String[] args) {
 			list.add(scanner.next());
 		}
 	} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
+
 		e.printStackTrace();
 	}
 	

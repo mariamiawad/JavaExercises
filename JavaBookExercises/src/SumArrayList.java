@@ -12,7 +12,7 @@ public static void main(String[] args) {
 	System.out.println(sum(list));
 }
 	public SumArrayList() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 	public static double sum(ArrayList<Double> list) {
 		double sum = 0;

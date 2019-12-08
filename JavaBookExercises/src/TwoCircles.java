@@ -2,7 +2,7 @@ import java.util.*;
 public class TwoCircles {
 
 	public TwoCircles() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 	
 public static void main(String[] args) {

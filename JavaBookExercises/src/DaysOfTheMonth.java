@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class DaysOfTheMonth {
 
 	public DaysOfTheMonth() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);

@@ -11,7 +11,7 @@ public class ExploreMatrix {
 	static Map<Integer, List<Integer>> columnMap = new HashMap<Integer, List<Integer>>();
 
 	public ExploreMatrix() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

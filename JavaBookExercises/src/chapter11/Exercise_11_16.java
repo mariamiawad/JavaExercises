@@ -8,7 +8,7 @@ public class Exercise_11_16 {
 	private static List<Integer> list = new ArrayList<Integer>();
 
 	public Exercise_11_16() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

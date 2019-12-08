@@ -20,7 +20,7 @@ public class Exercise_12_23 {
 				
 			}
 		} catch ( IOException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 		double averageScore = totalScores/count;

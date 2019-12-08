@@ -10,7 +10,7 @@ public class Exercise_13_05_Circle extends Exercise_13_05_GeometricObject {
 	public Exercise_13_05_Circle(String color, boolean filled, double radius) {
 		super(color, filled);
 		this.radius = radius;
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	@Override

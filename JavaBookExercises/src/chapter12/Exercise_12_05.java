@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Exercise_12_05 {
 
 	public Exercise_12_05() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) throws IOException {

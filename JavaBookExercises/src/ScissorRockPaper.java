@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class ScissorRockPaper {
 
 	public ScissorRockPaper() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

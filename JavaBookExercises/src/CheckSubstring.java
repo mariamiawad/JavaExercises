@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class CheckSubstring {
 
 	public CheckSubstring() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

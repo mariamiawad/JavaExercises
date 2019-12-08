@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class PersonalizedCup {
 public PersonalizedCup() {
-	// TODO Auto-generated constructor stub
+	// 
 }
 	public static void main(String[] args) {
 

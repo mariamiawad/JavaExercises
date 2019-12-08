@@ -7,7 +7,7 @@ public class TransactionClass {
 	private double balance ;
 	private String description;
 	public TransactionClass() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 	public TransactionClass(char type, double amount, double balance, String description ) {
 		this.type =type;

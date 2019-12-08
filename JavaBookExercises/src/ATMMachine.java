@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ATMMachine {
 
 	public ATMMachine() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	static int choice = 0;

@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class PointPosition {
 
 	public PointPosition() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 public static void main(String[] args) {
 	Scanner inputScanner = new Scanner(System.in);

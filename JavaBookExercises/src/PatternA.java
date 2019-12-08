@@ -2,7 +2,7 @@
 public class PatternA {
 
 	public PatternA() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 public static void main(String[] args) {
 	for (int row = 1; row < 7; row++) {

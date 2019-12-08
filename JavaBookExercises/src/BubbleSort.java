@@ -3,7 +3,7 @@ import java.util.Random;
 public class BubbleSort {
 
 	public BubbleSort() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void bubbleSort(int array[]) {

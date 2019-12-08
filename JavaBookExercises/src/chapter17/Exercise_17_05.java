@@ -29,7 +29,7 @@ public class Exercise_17_05 {
 			outputStream.writeObject(date);
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 

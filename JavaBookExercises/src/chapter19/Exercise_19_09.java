@@ -5,7 +5,7 @@ import java.util.Random;
 public class Exercise_19_09 {
 
 	public Exercise_19_09() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 	public static void main(String[] args) {
 		ArrayList<Integer> list = new ArrayList<>();

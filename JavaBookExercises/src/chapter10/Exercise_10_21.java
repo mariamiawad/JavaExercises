@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 public class Exercise_10_21 {
 
 	public Exercise_10_21() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

@@ -4,7 +4,7 @@ import java.util.Random;
 public class Exercise_08_22 {
 
 	public Exercise_08_22() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

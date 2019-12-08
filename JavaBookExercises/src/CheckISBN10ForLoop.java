@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class CheckISBN10ForLoop {
 
 	public CheckISBN10ForLoop() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

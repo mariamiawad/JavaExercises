@@ -2,7 +2,7 @@
 public class FindTheSalesAmountForLoop {
 
 	public FindTheSalesAmountForLoop() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 public static void main(String[] args) {
 	double comissions = 0;

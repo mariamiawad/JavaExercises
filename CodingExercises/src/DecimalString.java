@@ -6,7 +6,7 @@ public class DecimalString {
 	static Map<String, String> map = new HashMap<String, String>();
 
 	public DecimalString() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

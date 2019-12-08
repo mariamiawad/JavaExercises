@@ -3,7 +3,7 @@ package chapter13;
 public class Exercise_13_05 {
 
 	public Exercise_13_05() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

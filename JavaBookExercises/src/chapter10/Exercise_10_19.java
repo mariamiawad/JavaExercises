@@ -7,7 +7,7 @@ import java.math.RoundingMode;
 public class Exercise_10_19 {
 
 	public Exercise_10_19() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

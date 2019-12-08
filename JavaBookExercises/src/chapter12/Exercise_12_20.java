@@ -35,7 +35,7 @@ public class Exercise_12_20 {
 			
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 	

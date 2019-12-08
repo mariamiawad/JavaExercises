@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class DisplayCalendar {
 
 	public DisplayCalendar() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

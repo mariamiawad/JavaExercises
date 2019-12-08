@@ -33,7 +33,7 @@ public class Exercise_17_03 {
 			}
 			System.out.println("The sum = " + sum);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 	}

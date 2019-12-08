@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class DecimalToBinaryLoop {
 
 	public DecimalToBinaryLoop() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 	public static void main(String[] args) {
 		Scanner inputScanner = new Scanner(System.in);

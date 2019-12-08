@@ -3,7 +3,7 @@ import java.time.Year;
 public class LeapYear {
 
 	public LeapYear() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 	public static void main(String[] args) {
 		int countYear =0;

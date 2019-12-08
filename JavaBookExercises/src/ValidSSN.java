@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ValidSSN {
 
 	public ValidSSN() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class OccurenceOfLargestNumber {
 
 	public OccurenceOfLargestNumber() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

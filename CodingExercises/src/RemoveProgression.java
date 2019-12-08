@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class RemoveProgression {
 
 	public RemoveProgression() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 	public static int getElement(int x , int y) {
 

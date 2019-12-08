@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class PhoneKeyPadMethod {
 
 	public PhoneKeyPadMethod() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

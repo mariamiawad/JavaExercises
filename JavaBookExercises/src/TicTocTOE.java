@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class TicTocTOE {
 
 	public TicTocTOE() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	static char[][] character = new char[3][3];

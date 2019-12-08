@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ModifiedCheckISBN10 {
 
 	public ModifiedCheckISBN10() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 public static void main(String[] args) {
 	Scanner inputScanner = new Scanner(System.in);

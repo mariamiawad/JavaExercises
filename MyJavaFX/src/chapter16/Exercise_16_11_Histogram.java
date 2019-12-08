@@ -43,7 +43,7 @@ public class Exercise_16_11_Histogram extends Pane {
 			}
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 		string = string.toUpperCase();

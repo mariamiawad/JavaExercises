@@ -2,7 +2,7 @@
 public class LargestN {
 
 	public LargestN() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

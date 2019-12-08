@@ -2,7 +2,7 @@
 public class ComputePI {
 
 	public ComputePI() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 public static void main(String[] args) {
 	double pi = 0;

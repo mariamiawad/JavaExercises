@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class CountLettersInAString {
 
 	public CountLettersInAString() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 	public static void main(String[] args) {
 		Scanner inputScanner = new Scanner(System.in);

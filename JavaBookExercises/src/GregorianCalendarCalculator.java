@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 public class GregorianCalendarCalculator {
 
 	public GregorianCalendarCalculator() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

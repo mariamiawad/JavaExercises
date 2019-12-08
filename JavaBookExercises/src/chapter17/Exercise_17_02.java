@@ -10,7 +10,7 @@ import java.util.Random;
 public class Exercise_17_02 {
 
 	public Exercise_17_02() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 	public static void main(String[] args) throws IOException {
 		File file = new File("Exercise17_02.dat");

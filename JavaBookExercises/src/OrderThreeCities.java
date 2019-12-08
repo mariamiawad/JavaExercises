@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class OrderThreeCities {
 
 	public OrderThreeCities() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 public static void main(String[] args) {
 	Scanner inputScanner = new Scanner(System.in);

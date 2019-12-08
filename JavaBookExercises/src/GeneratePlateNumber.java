@@ -3,7 +3,7 @@ import java.util.Random;
 public class GeneratePlateNumber {
 
 	public GeneratePlateNumber() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 	public static void main(String[] args) {
 		Random random = new Random();

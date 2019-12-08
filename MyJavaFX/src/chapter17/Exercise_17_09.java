@@ -76,7 +76,7 @@ public class Exercise_17_09 extends Application  {
 		try {
 			retrieve();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
+	
 			e1.printStackTrace();
 		}
 		Scene scene = new Scene(vBox, 700, 300);
@@ -183,7 +183,7 @@ public class Exercise_17_09 extends Application  {
 			try {
 				file.createNewFile();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+		
 				e.printStackTrace();
 			}
 		}
@@ -192,13 +192,13 @@ public class Exercise_17_09 extends Application  {
 			raf = new RandomAccessFile(file, "rw");
 			raf.seek(raf.length() +1);
 		} catch (  IOException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 		try {
 			contact.write(raf);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 
@@ -210,7 +210,7 @@ public class Exercise_17_09 extends Application  {
 			try {
 				file.createNewFile();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+		
 				e.printStackTrace();
 			}
 		}

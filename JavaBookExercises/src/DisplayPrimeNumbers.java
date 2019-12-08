@@ -2,7 +2,7 @@
 public class DisplayPrimeNumbers {
 
 	public DisplayPrimeNumbers() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

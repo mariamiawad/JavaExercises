@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Exercise_12_19 {
 
 	public Exercise_12_19() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

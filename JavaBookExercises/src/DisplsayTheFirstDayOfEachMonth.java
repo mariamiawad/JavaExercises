@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class DisplsayTheFirstDayOfEachMonth {
 
 	public DisplsayTheFirstDayOfEachMonth() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

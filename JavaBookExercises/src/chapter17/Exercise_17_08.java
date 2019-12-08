@@ -18,7 +18,7 @@ public class Exercise_17_08 {
 			randomAccessFile.writeByte(count);
 			System.out.println("The count is " + count);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 	}

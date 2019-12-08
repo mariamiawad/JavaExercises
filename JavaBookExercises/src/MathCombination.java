@@ -2,7 +2,7 @@
 public class MathCombination {
 
 	public MathCombination() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

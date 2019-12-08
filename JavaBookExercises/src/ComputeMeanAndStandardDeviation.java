@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ComputeMeanAndStandardDeviation {
 
 	public ComputeMeanAndStandardDeviation() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

@@ -53,7 +53,7 @@ public class Exercise_16_10 extends Application {
 
 				}
 			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
+		
 				e1.printStackTrace();
 			}
 			content.setText(s1);

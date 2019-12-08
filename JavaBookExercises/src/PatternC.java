@@ -2,7 +2,7 @@
 public class PatternC {
 
 	public PatternC() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

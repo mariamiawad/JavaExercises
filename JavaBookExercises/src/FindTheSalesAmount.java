@@ -2,7 +2,7 @@
 public class FindTheSalesAmount {
 
 	public FindTheSalesAmount() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

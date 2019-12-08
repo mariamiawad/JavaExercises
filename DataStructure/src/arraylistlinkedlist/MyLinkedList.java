@@ -193,7 +193,6 @@ public class MyLinkedList<E> implements List<E> {
 
 	@Override
 	public int size() {
-		// TODO Implement
 		return size;
 	}
 

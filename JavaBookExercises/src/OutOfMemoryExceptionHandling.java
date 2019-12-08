@@ -2,7 +2,7 @@
 public class OutOfMemoryExceptionHandling {
 
 	public OutOfMemoryExceptionHandling() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

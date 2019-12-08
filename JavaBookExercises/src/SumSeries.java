@@ -2,7 +2,7 @@
 public class SumSeries {
 
 	public SumSeries() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 public static void main(String[] args) {
 	double x =0;

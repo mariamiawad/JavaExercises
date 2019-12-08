@@ -100,7 +100,7 @@ public class Exercise_17_06 implements Serializable {
 			outputStream.writeObject(loan5);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 

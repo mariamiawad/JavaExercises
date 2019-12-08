@@ -10,7 +10,7 @@ public class Exercise_07_21 {
 	static int[][] integer;
 
 	public Exercise_07_21() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class Exercise_16_05 extends Application {
 
 	public Exercise_16_05() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

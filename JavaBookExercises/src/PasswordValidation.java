@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class PasswordValidation {
 
 	public PasswordValidation() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

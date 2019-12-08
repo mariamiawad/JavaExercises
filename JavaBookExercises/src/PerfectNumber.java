@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class PerfectNumber {
 
 	public PerfectNumber() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {

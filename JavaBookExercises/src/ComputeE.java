@@ -2,7 +2,7 @@
 public class ComputeE {
 
 	public ComputeE() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 	public static void main(String[] args) {
 		

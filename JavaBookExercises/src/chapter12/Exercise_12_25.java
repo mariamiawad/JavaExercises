@@ -47,7 +47,7 @@ public class Exercise_12_25 {
 			}
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 		if (!file2.exists()) {
@@ -56,7 +56,7 @@ public class Exercise_12_25 {
 			}
 
 			catch (IOException e) {
-				// TODO Auto-generated catch block
+		
 				e.printStackTrace();
 			}
 		}
@@ -74,7 +74,7 @@ public class Exercise_12_25 {
 
 			writer.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 

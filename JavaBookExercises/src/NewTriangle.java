@@ -56,7 +56,7 @@ public class NewTriangle extends SimpleGeometricObject {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
+	
 		return "Triangle: side1 = " + side1 + " side2 = " + side2 + " side3 = " + side3;
 	}
 

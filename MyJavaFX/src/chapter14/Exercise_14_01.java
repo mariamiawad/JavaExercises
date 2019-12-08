@@ -17,7 +17,7 @@ import javafx.scene.image.ImageView;
 public class Exercise_14_01 extends Application {
 
 	public Exercise_14_01() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public static void main(String[] args) {
