@@ -2,8 +2,6 @@ package mystak;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import arraylistlinkedlist.MyLinkedList.Node;
-
 public class MyStackLinkedList<E>{
 	Node top; 
 	int size;
@@ -45,7 +43,7 @@ public class MyStackLinkedList<E>{
 		return new MyIterator();
 	}
 
-
+	// TODO - why public?
 	public class MyIterator implements Iterator<E> {
 		int indexIterator = 0;
 		Node node = top;

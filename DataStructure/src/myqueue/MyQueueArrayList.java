@@ -1,7 +1,6 @@
 package myqueue;
-import java.util.*;
-
-import arraylistlinkedlist.MyArrayList.MyIterator;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class MyQueueArrayList<E> {
 	private int head;
@@ -39,6 +38,7 @@ public class MyQueueArrayList<E> {
 
 	}
 
+	// TODO - send new size as parameter to avoid recalculations
 	private void resize() {
 		E[] newArray = null;
 

@@ -1,5 +1,5 @@
 package testmyqueue;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.NoSuchElementException;
 
@@ -169,6 +169,22 @@ public class TestMyQueueArrayList {
 	public void testSize_EmptyQueue_ReturnZero() {
 		MyQueueArrayList<Integer> list = new MyQueueArrayList<>();
 		assertEquals(0, list.size());
+	}
+	
+	@Test
+	public void testAddFiveElements_RemoveThree_AddNineElements_SizeShouldBeEleven() {
+		// TODO - This should not fail
+		MyQueueArrayList<Integer> list = new MyQueueArrayList<>();
+		for (int i = 0; i < 5; i++) {
+			list.enqueue(i);
+		}
+		for (int i = 0; i < 3; i++) {
+			list.dequeue();
+		}
+		for (int i = 0; i < 9; i++) {
+			list.enqueue(i);
+		}
+		assertEquals(11, list.size());
 	}
 
 }

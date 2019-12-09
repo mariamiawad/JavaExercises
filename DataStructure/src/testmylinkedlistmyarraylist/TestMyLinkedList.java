@@ -1,13 +1,13 @@
 package testmylinkedlistmyarraylist;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
 import arraylistlinkedlist.MyLinkedList;
-import arraylistlinkedlist.MyLinkedList.MyIterator;
 
 public class TestMyLinkedList {
 
@@ -424,5 +424,21 @@ public class TestMyLinkedList {
 		MyLinkedList<Integer> list = new MyLinkedList<>();
 		MyLinkedList<Integer>.MyIterator itrIterator = list.iterator();
 		itrIterator.next();
+	}
+	
+	@Test
+	public void testAddOneElement_CallIndexOfWithNull() {
+		// TODO - This should not fail
+		MyLinkedList<Integer> list = new MyLinkedList<>();
+		list.add(1);
+		assertEquals(-1, list.indexOf(null));
+	}
+	
+	@Test
+	public void testAddOneElement_CallContainsWithNull() {
+		// TODO - This should not fail
+		MyLinkedList<Integer> list = new MyLinkedList<>();
+		list.add(1);
+		assertFalse(list.contains(null));
 	}
 }
