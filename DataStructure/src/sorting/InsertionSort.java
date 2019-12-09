@@ -24,6 +24,9 @@ public class InsertionSort<E> {
 	public <E extends Comparable<E>> void insertionSort(E[] list) {
 		int size = list.length;
 		E max = null;
+		if (list.length <=  0) {
+			throw new NoSuchElementException();
+		}
 		for (int i = 0; i < list.length; i++) {
 			if(list[i] == null) {
 				throw new NoSuchElementException();

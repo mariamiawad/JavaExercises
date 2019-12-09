@@ -21,6 +21,9 @@ public class BubbleSort <E>{
 	}
 	public <E extends Comparable<E>> void bubbleSort(E[] list) {
 		int n = list.length;
+		if (list.length <= 0) {
+			throw new NoSuchElementException();
+		}
 		for (int i = 0; i < list.length; i++) {
 			if(list[i] == null) {
 				throw new NoSuchElementException();

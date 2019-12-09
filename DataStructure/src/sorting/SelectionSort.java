@@ -28,6 +28,9 @@ public class SelectionSort<E> {
 	public <E extends Comparable<E>> void selectionSort(E[] list) {
 		int size = list.length;
 		int index = 0;
+		if (list.length<=0) {
+			throw new NoSuchElementException();
+		}
 		for (int i = 0; i < size; i++) {
 			if (list[i] == null) {
 				throw new NoSuchElementException("Array is Empty");
