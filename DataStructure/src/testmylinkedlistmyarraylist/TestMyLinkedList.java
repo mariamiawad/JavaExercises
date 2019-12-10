@@ -428,7 +428,7 @@ public class TestMyLinkedList {
 	
 	@Test
 	public void testAddOneElement_CallIndexOfWithNull() {
-		// TODO - This should not fail
+		
 		MyLinkedList<Integer> list = new MyLinkedList<>();
 		list.add(1);
 		assertEquals(-1, list.indexOf(null));
@@ -436,7 +436,7 @@ public class TestMyLinkedList {
 	
 	@Test
 	public void testAddOneElement_CallContainsWithNull() {
-		// TODO - This should not fail
+		
 		MyLinkedList<Integer> list = new MyLinkedList<>();
 		list.add(1);
 		assertFalse(list.contains(null));

@@ -262,7 +262,7 @@ public class TestMyArrayList {
 			arrayList.remove(i);
 		}
 		
-		assertEquals(arrayList.size(),5);
+		assertEquals(5, arrayList.size());
 	}
 	@Test
 	public void Itreator_OverOneElement_One() {
@@ -348,7 +348,6 @@ public class TestMyArrayList {
 
 	@Test
 	public void testAdd_OneElement_SizeShouldBeOne() {
-		// TODO - This should not fail
 		MyArrayList<Integer> list = new MyArrayList<>();
 		list.add(0, 1);
 		assertEquals(1, list.size());
@@ -356,7 +355,6 @@ public class TestMyArrayList {
 
 	@Test
 	public void testAdd_OneElement_CallContainsShouldReturnTrue() {
-		// TODO - This should not fail
 		MyArrayList<Integer> list = new MyArrayList<>();
 		list.add(3556);
 		assertTrue(list.contains(new Integer(3556)));
@@ -364,7 +362,7 @@ public class TestMyArrayList {
 
 	@Test
 	public void testAdd_OneElement_CallContainsWithNullsShouldReturnFalse() {
-		// TODO - This should not fail
+		
 		MyArrayList<Integer> list = new MyArrayList<>();
 		list.add(3556);
 		assertFalse(list.contains(null));

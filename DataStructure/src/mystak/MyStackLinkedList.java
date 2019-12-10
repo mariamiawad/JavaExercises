@@ -44,6 +44,7 @@ public class MyStackLinkedList<E>{
 	}
 
 	// TODO - why public?
+	// I need it to be public to use it in the test cases
 	public class MyIterator implements Iterator<E> {
 		int indexIterator = 0;
 		Node node = top;

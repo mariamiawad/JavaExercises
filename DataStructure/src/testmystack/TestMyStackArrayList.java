@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
+import arraylistlinkedlist.MyArrayList;
 import mystak.MyStackArrayList;
 
 public class TestMyStackArrayList {
@@ -211,7 +212,7 @@ public class TestMyStackArrayList {
 	public void Itreator_OverOneElement_One() {
 		MyStackArrayList<Integer> list = new MyStackArrayList<>();
 		list.push(1);
-		MyStackArrayList<Integer>.MyIterator itrIterator = list.iterator();
+		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
 		while (itrIterator.hasNext()) {
 			System.out.println(itrIterator.next());
 		}
@@ -223,7 +224,7 @@ public class TestMyStackArrayList {
 		MyStackArrayList<Integer> list = new MyStackArrayList<>();
 		list.push(1);
 		list.push(2);
-		MyStackArrayList<Integer>.MyIterator itrIterator = list.iterator();
+		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
 		while (itrIterator.hasNext()) {
 			System.out.println(itrIterator.next());
 		}
@@ -235,7 +236,7 @@ public class TestMyStackArrayList {
 		list.push(1);
 		list.push(2);
 		list.push(3);
-		MyStackArrayList<Integer>.MyIterator itrIterator = list.iterator();
+		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
 		while (itrIterator.hasNext()) {
 			System.out.println(itrIterator.next());
 		}
@@ -248,7 +249,7 @@ public class TestMyStackArrayList {
 			list.push(i);
 		}
 		
-		MyStackArrayList<Integer>.MyIterator itrIterator = list.iterator();
+		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
 		while (itrIterator.hasNext()) {
 			System.out.println(itrIterator.next());
 		}
@@ -259,14 +260,14 @@ public class TestMyStackArrayList {
 		MyStackArrayList<Integer> list = new MyStackArrayList<>();
 		
 		
-		MyStackArrayList<Integer>.MyIterator itrIterator = list.iterator();
+		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
 		
 		assertEquals(itrIterator.hasNext(), false);
 	}
 	@Test(expected = NoSuchElementException.class)
 	public void Itreator_EmptyList_NoSuchElementException() {
 		MyStackArrayList<Integer> list = new MyStackArrayList<>();
-		MyStackArrayList<Integer>.MyIterator itrIterator = list.iterator();
+		MyArrayList<Integer>.MyIterator itrIterator = list.iterator();
 		itrIterator.next();
 	}
 

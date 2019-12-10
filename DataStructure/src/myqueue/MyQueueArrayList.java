@@ -1,22 +1,23 @@
 package myqueue;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class MyQueueArrayList<E> {
-	private int head;
-	private int tail;
-	private int size;
+	private int head = -1;
+	private int tail = -1;
+	private int size ;
 	private E[] elements = (E[]) new Object[10];
 	int INITIAL_CAPACITY = 10;
 
 	public void enqueue(E element) {
 
-		elements[tail] = element;
-		tail++;
+		elements[++tail] = element;
 		size++;
 
 		if (size >= elements.length) {
-			resize();
+			int tempSize = size;
+			resize(tempSize * 2);
 
 		}
 
@@ -26,38 +27,29 @@ public class MyQueueArrayList<E> {
 		if (isEmpty()) {
 			throw new NoSuchElementException("Queue is Empty");
 		}
-		E temp = elements[head];
-		head++;
+		E temp = elements[++head];
+		tail--;
 		size--;
 
-		if (size <= 0.25 * elements.length) {
-			resize();
+		if (size <= 0.25 * elements.length && size > INITIAL_CAPACITY) {
+			int tempSize = size;
+			resize(tempSize * 2);
 		}
 
 		return temp;
 
 	}
 
-	// TODO - send new size as parameter to avoid recalculations
-	private void resize() {
+	private void resize(int size) {
 		E[] newArray = null;
 
-		if (size <= 0.25 * elements.length && elements.length > INITIAL_CAPACITY) {
-			newArray = (E[]) new Object[elements.length / 2];
-			for (int i = 0; i < elements.length && i < newArray.length; i++) {
-				newArray[i] = elements[head++];
+		newArray = (E[]) new Object[size];
+		for (int i = 0; i < elements.length; i++) {
+			newArray[i] = elements[i];
 
-			}
-			head = 0;
-		} else if (size >= elements.length) {
-			newArray = (E[]) new Object[size * 2];
-			for (int i = 0; i < elements.length; i++) {
-				newArray[i] = elements[i];
-			}
 		}
-		if ((size <= 0.25 * elements.length && elements.length > INITIAL_CAPACITY) || size >= elements.length) {
-			this.elements = newArray;
-		}
+
+		this.elements = newArray;
 
 	}
 
@@ -68,6 +60,7 @@ public class MyQueueArrayList<E> {
 	public int size() {
 		return size;
 	}
+
 	public MyIterator iterator() {
 		return new MyIterator();
 	}

@@ -6,17 +6,13 @@ import java.util.NoSuchElementException;
 public class MyArrayList<E> implements List<E> {
 	private int INITIAL_CAPACITY = 10;
 	static int capacity = 10;
-	E[] arrayList;
+	E[] arrayList = (E[]) new Object[capacity];;
 	int size = 0;;
-
-	public MyArrayList() {
-		this.arrayList = (E[]) new Object[capacity];
-	}
 
 	@Override
 	public void add(E e) {
 		if (size >= capacity) {
-			resize();
+			resize(capacity * 2);
 		}
 		arrayList[size] = e;
 		size++;
@@ -26,11 +22,11 @@ public class MyArrayList<E> implements List<E> {
 	@Override
 	public void add(int index, E element) {
 
-		if (index < 0 || index >= size) {
+		if (index < 0|| (index >= size && size!=0)) {
 			throw new IndexOutOfBoundsException();
 		}
 		if (size >= capacity) {
-			resize();
+			resize(capacity * 2);
 		}
 		arrayList[index] = element;
 		size++;
@@ -39,8 +35,8 @@ public class MyArrayList<E> implements List<E> {
 
 	@Override
 	public boolean contains(Object o) {
-		for (int i = 0; i < arrayList.length; i++) {
-			if (arrayList[i] == o) {
+		for (int i = 0; i < arrayList.length && i < size; i++) {
+			if (arrayList[i].equals(o)) {
 				return true;
 			}
 		}
@@ -80,24 +76,17 @@ public class MyArrayList<E> implements List<E> {
 		E[] newArray = (E[]) new Object[arrayList.length - 1];
 		int ind = -1;
 		E returnE = null;
-		// TODO - why copy to new array?
-		for (int i = 0; i < index; i++) {
-			newArray[i] = arrayList[i];
-		}
 
 		ind = index;
 		returnE = arrayList[index];
+		for (int i = index; i < size-1; i++) {
+			arrayList[i] = arrayList[i + 1];
+
+		}
 		size--;
 
-		if (ind > -1) {
-			for (int i = ind; i < newArray.length; i++) {
-				newArray[i] = arrayList[i + 1];
-			}
-			this.arrayList = newArray;
-		}
-
 		if (size <= 0.25 * capacity) {
-			resize();
+			resize(capacity / 2);
 		}
 		return returnE;
 	}
@@ -122,6 +111,8 @@ public class MyArrayList<E> implements List<E> {
 
 		}
 		// TODO - why return the old value?
+		// because it's what it should return according to Java Arraylist
+
 		E value = arrayList[index];
 		arrayList[index] = element;
 		return value;
@@ -133,26 +124,15 @@ public class MyArrayList<E> implements List<E> {
 
 	}
 
-	private void resize() {
-		// TODO - you should already know what is the new size when you call the method, no need to recalculate it here again. Just send it from the caller
-		E[] newArray = null;
+	private void resize(int size) {
 
-		if (size <= 0.25 * capacity && capacity > INITIAL_CAPACITY) {
-			newArray = (E[]) new Object[capacity / 2];
-			for (int i = 0; i < arrayList.length && i < newArray.length; i++) {
-				newArray[i] = arrayList[i];
-			}
-		} else if (size >= capacity) {
-			newArray = (E[]) new Object[size * 2];
-			for (int i = 0; i < arrayList.length; i++) {
-				newArray[i] = arrayList[i];
-			}
+		E[] newArray = (E[]) new Object[size];
+		for (int i = 0; i < arrayList.length && i < newArray.length; i++) {
+			newArray[i] = arrayList[i];
 		}
-		if ((size <= 0.25 * capacity && capacity > INITIAL_CAPACITY) || size >= capacity) {
-			this.arrayList = newArray;
-			if (capacity > INITIAL_CAPACITY || size <= capacity)
-				this.capacity = arrayList.length;
-		}
+
+		this.arrayList = newArray;
+		this.capacity = arrayList.length;
 
 	}
 

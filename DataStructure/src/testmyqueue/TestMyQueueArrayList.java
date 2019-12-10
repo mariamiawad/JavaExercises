@@ -82,14 +82,13 @@ public class TestMyQueueArrayList {
 	@Test
 	public void testDequeue_TwentyOneElementsEnqueueThanDequeueThanEnqueueThanDequeue_ReturnSizeZero() {
 		MyQueueArrayList<Integer> list = new MyQueueArrayList<>();
-		for (int i = 1; i < 21; i++) {
+		for (int i = 0; i < 20; i++) {
 			list.enqueue(i);
 		}
 		list.enqueue(1);
-		list.dequeue();
 		list.enqueue(2);
-		for (int i = 1; i < 20; i++) {
-			assertEquals(Integer.valueOf(i+1),list.dequeue());
+		for (int i = 0; i < 20; i++) {
+			assertEquals(Integer.valueOf(i),list.dequeue());
 		}
 		assertEquals(Integer.valueOf(1), list.dequeue());
 		assertEquals(Integer.valueOf(2), list.dequeue());
@@ -101,7 +100,6 @@ public class TestMyQueueArrayList {
 		for (int i = 1; i < 21; i++) {
 			list.enqueue(i);
 		}
-		list.enqueue(1);
 		assertEquals(Integer.valueOf(1), list.dequeue());
 		assertEquals(Integer.valueOf(2), list.dequeue());
 		assertEquals(Integer.valueOf(3), list.dequeue());
@@ -113,12 +111,13 @@ public class TestMyQueueArrayList {
 		list.enqueue(1);
 		list.enqueue(1);
 		list.enqueue(2);
-		for (int i = 6; i < 20; i++) {
+		list.enqueue(2);
+		for (int i = 6; i < 14; i++) {
 			assertEquals(Integer.valueOf(i+1),list.dequeue());
 		}
 		assertEquals(Integer.valueOf(1), list.dequeue());
 		assertEquals(Integer.valueOf(1), list.dequeue());
-		assertEquals(4, list.size());
+		assertEquals(10, list.size());
 	}
 	@Test(expected = NoSuchElementException.class)
 	public void testDequeue_EmptyQueue_NoSuchElementException() {
@@ -173,7 +172,6 @@ public class TestMyQueueArrayList {
 	
 	@Test
 	public void testAddFiveElements_RemoveThree_AddNineElements_SizeShouldBeEleven() {
-		// TODO - This should not fail
 		MyQueueArrayList<Integer> list = new MyQueueArrayList<>();
 		for (int i = 0; i < 5; i++) {
 			list.enqueue(i);

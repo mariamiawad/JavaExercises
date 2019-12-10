@@ -67,7 +67,8 @@ public class MyLinkedList<E> implements List<E> {
 	public boolean contains(Object o) {
 		Node currentNode = head;
 		for (int i = 0; i < size; i++) {
-			if (o.equals(currentNode.data)) {
+			
+			if (currentNode.data.equals(o)) {
 				return true;
 			}
 			currentNode = currentNode.next;
@@ -98,7 +99,7 @@ public class MyLinkedList<E> implements List<E> {
 		int i = 0;
 		Node n = head;
 		while (i < size) {
-			if (o.equals(n.data)) {
+			if (n.data.equals(o)) {
 				return i;
 			}
 			i++;
