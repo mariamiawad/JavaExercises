@@ -80,6 +80,7 @@ public class MyArrayList<E> implements List<E> {
 		E[] newArray = (E[]) new Object[arrayList.length - 1];
 		int ind = -1;
 		E returnE = null;
+		// TODO - why copy to new array?
 		for (int i = 0; i < index; i++) {
 			newArray[i] = arrayList[i];
 		}
@@ -120,6 +121,7 @@ public class MyArrayList<E> implements List<E> {
 			throw new IndexOutOfBoundsException();
 
 		}
+		// TODO - why return the old value?
 		E value = arrayList[index];
 		arrayList[index] = element;
 		return value;
@@ -132,6 +134,7 @@ public class MyArrayList<E> implements List<E> {
 	}
 
 	private void resize() {
+		// TODO - you should already know what is the new size when you call the method, no need to recalculate it here again. Just send it from the caller
 		E[] newArray = null;
 
 		if (size <= 0.25 * capacity && capacity > INITIAL_CAPACITY) {

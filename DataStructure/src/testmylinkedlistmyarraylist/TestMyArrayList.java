@@ -1,14 +1,14 @@
 package testmylinkedlistmyarraylist;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
 import arraylistlinkedlist.MyArrayList;
-import arraylistlinkedlist.MyLinkedList;
-import arraylistlinkedlist.MyArrayList.MyIterator;
 
 public class TestMyArrayList {
 	@Test
@@ -344,5 +344,29 @@ public class TestMyArrayList {
 			list.remove(0);
 		}
 		assertEquals(0, list.size());
+	}	
+
+	@Test
+	public void testAdd_OneElement_SizeShouldBeOne() {
+		// TODO - This should not fail
+		MyArrayList<Integer> list = new MyArrayList<>();
+		list.add(0, 1);
+		assertEquals(1, list.size());
+	}	
+
+	@Test
+	public void testAdd_OneElement_CallContainsShouldReturnTrue() {
+		// TODO - This should not fail
+		MyArrayList<Integer> list = new MyArrayList<>();
+		list.add(3556);
+		assertTrue(list.contains(new Integer(3556)));
+	}	
+
+	@Test
+	public void testAdd_OneElement_CallContainsWithNullsShouldReturnFalse() {
+		// TODO - This should not fail
+		MyArrayList<Integer> list = new MyArrayList<>();
+		list.add(3556);
+		assertFalse(list.contains(null));
 	}
 }
