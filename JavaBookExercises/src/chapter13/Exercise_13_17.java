@@ -70,7 +70,9 @@ public class Exercise_13_17 implements Cloneable {
 		if (b == 0) {
 			return this.a + "";
 		}
-		return a + " " + b + "i";
+		
+		return a + " + " + b + "i";
+		
 	}
 
 	public static void main(String[] args) {
