@@ -3,9 +3,7 @@ package arraylistlinkedlist;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import arraylistlinkedlist.MyArrayList.MyIterator;
-
-public class MyLinkedList<E> implements List<E> {
+public class MyLinkedList<E> implements List<E>, Iterable<E> {
 
 	Node head;
 	Node tail;
@@ -242,11 +240,11 @@ public class MyLinkedList<E> implements List<E> {
 		return remove(size - 1);
 	}
 
-	public MyIterator iterator() {
+	public Iterator<E> iterator() {
 		return new MyIterator();
 	}
 
-	public class MyIterator implements Iterator<E> {
+	private class MyIterator implements Iterator<E> {
 		int indexIterator = 0;
 		Node node = head;
 		Node prevNode ;

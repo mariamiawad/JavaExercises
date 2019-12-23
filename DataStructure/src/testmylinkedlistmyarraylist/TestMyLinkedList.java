@@ -3,6 +3,7 @@ package testmylinkedlistmyarraylist;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import org.junit.Test;
@@ -367,7 +368,7 @@ public class TestMyLinkedList {
 	public void Itreator_OverOneElement_One() {
 		MyLinkedList<Integer> list = new MyLinkedList<>();
 		list.add(1);
-		MyLinkedList<Integer>.MyIterator itrIterator = list.iterator();
+		Iterator<Integer> itrIterator = list.iterator();
 		while (itrIterator.hasNext()) {
 			System.out.println(itrIterator.next());
 		}
@@ -379,7 +380,7 @@ public class TestMyLinkedList {
 		MyLinkedList<Integer> list = new MyLinkedList<>();
 		list.add(1);
 		list.add(2);
-		MyLinkedList<Integer>.MyIterator itrIterator = list.iterator();
+		Iterator<Integer> itrIterator = list.iterator();
 		while (itrIterator.hasNext()) {
 			System.out.println(itrIterator.next());
 		}
@@ -391,7 +392,7 @@ public class TestMyLinkedList {
 		list.add(1);
 		list.add(2);
 		list.add(3);
-		MyLinkedList<Integer>.MyIterator itrIterator = list.iterator();
+		Iterator<Integer> itrIterator = list.iterator();
 		while (itrIterator.hasNext()) {
 			System.out.println(itrIterator.next());
 		}
@@ -404,7 +405,7 @@ public class TestMyLinkedList {
 			list.add(i);
 		}
 		
-		MyLinkedList<Integer>.MyIterator itrIterator = list.iterator();
+		Iterator<Integer>itrIterator = list.iterator();
 		while (itrIterator.hasNext()) {
 			System.out.println(itrIterator.next());
 		}
@@ -415,14 +416,14 @@ public class TestMyLinkedList {
 		MyLinkedList<Integer> list = new MyLinkedList<>();
 		
 		
-		MyLinkedList<Integer>.MyIterator itrIterator = list.iterator();
+		Iterator<Integer> itrIterator = list.iterator();
 		
 		assertEquals(itrIterator.hasNext(), false);
 	}
 	@Test(expected = NoSuchElementException.class)
 	public void Itreator_EmptyList_NoSuchElementException() {
 		MyLinkedList<Integer> list = new MyLinkedList<>();
-		MyLinkedList<Integer>.MyIterator itrIterator = list.iterator();
+		Iterator<Integer> itrIterator = list.iterator();
 		itrIterator.next();
 	}
 	

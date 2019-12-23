@@ -3,7 +3,7 @@ package arraylistlinkedlist;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class MyArrayList<E> implements List<E> {
+public class MyArrayList<E> implements List<E>, Iterable<E> {
 	private int INITIAL_CAPACITY = 10;
 	static int capacity = 10;
 	E[] arrayList = (E[]) new Object[capacity];;
@@ -136,11 +136,11 @@ public class MyArrayList<E> implements List<E> {
 
 	}
 
-	public MyIterator iterator() {
+	public Iterator<E> iterator() {
 		return new MyIterator();
 	}
 
-	public class MyIterator implements Iterator<E> {
+	private class MyIterator implements Iterator<E> {
 		int indexIterator = 0;
 
 		E data;

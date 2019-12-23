@@ -39,13 +39,11 @@ public class MyStackLinkedList<E>{
 		return MyIreator();
 		
 	}
-	public MyIterator iterator() {
+	public Iterator<E> iterator() {
 		return new MyIterator();
 	}
-
-	// TODO - why public?
-	// I need it to be public to use it in the test cases
-	public class MyIterator implements Iterator<E> {
+	
+	private class MyIterator implements Iterator<E> {
 		int indexIterator = 0;
 		Node node = top;
 		Node prevNode ;

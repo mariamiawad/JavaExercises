@@ -3,12 +3,13 @@ package testmyqueue;
 
 import static org.junit.Assert.*;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
 import myqueue.MyQueueLinkedList;
-import myqueue.MyQueueLinkedList.MyIterator;
+
 
 
 
@@ -18,7 +19,7 @@ public class TestMyQueueLinkedList {
 	public void testEnqueue_AddOneElement_SizeOne() {
 		MyQueueLinkedList<Integer>linkedList = new MyQueueLinkedList<>();
 		linkedList.enqueue(1);
-		MyQueueLinkedList<Integer>.MyIterator iterator = linkedList.iterator();
+		Iterator<Integer> iterator = linkedList.iterator();
 		while (iterator.hasNext()) {
 			System.out.print(iterator.next());
 		}
@@ -29,7 +30,7 @@ public class TestMyQueueLinkedList {
 		MyQueueLinkedList<Integer>linkedList = new MyQueueLinkedList<>();
 		linkedList.enqueue(1);
 		linkedList.enqueue(2);
-		MyQueueLinkedList<Integer>.MyIterator iterator = linkedList.iterator();
+		Iterator<Integer> iterator = linkedList.iterator();
 		while (iterator.hasNext()) {
 			System.out.print(iterator.next());
 		}
@@ -42,7 +43,7 @@ public class TestMyQueueLinkedList {
 			linkedList.enqueue(i);
 		}
 		
-		MyQueueLinkedList<Integer>.MyIterator iterator = linkedList.iterator();
+		Iterator<Integer> iterator = linkedList.iterator();
 		while (iterator.hasNext()) {
 			System.out.println(iterator.next());
 		}

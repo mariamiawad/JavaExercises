@@ -3,7 +3,7 @@ package myqueue;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class MyQueueArrayList<E> {
+public class MyQueueArrayList<E> implements Iterable<E> {
 	private int head = -1;
 	private int tail = -1;
 	private int size ;
@@ -61,11 +61,11 @@ public class MyQueueArrayList<E> {
 		return size;
 	}
 
-	public MyIterator iterator() {
+	public Iterator<E> iterator() {
 		return new MyIterator();
 	}
 
-	public class MyIterator implements Iterator<E> {
+	private class MyIterator implements Iterator<E> {
 		int indexIterator = 0;
 
 		E data;

@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 
 import arraylistlinkedlist.MyLinkedList;
 
-public class MyQueueLinkedList<E> {
+public class MyQueueLinkedList<E> implements Iterable<E> {
 	private MyLinkedList<E> linkedList = new MyLinkedList<>();
 	
 	public void enqueue(E element) {
@@ -28,13 +28,13 @@ public class MyQueueLinkedList<E> {
 		return linkedList.isEmpty();
 	}
 
-	public MyIterator iterator() {
+	public Iterator<E> iterator() {
 		return new MyIterator();
 	}
 
-	public class MyIterator implements Iterator<E> {
+	private class MyIterator implements Iterator<E> {
 
-		MyLinkedList<E>.MyIterator iterator = linkedList.iterator();
+		Iterator<E> iterator = linkedList.iterator();
 
 		@Override
 		public boolean hasNext() {

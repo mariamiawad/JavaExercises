@@ -4,9 +4,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import arraylistlinkedlist.MyArrayList;
-import arraylistlinkedlist.MyArrayList.MyIterator;
 
-public class MyStackArrayList<E> {
+public class MyStackArrayList<E> implements Iterable<E>{
 	private MyArrayList<E> list = new MyArrayList<>();
 
 	public void push(E element) {
@@ -35,14 +34,10 @@ public class MyStackArrayList<E> {
 		return list.isEmpty();
 	}
 
-	public MyIterator MyIreator() {
-		return MyIreator();
 
-	}
 
-	public MyIterator iterator() {
-		MyIterator iterator = list.iterator();
-		return iterator;
+	public Iterator<E> iterator() {
+		return list.iterator();
 	}
 	
 }
