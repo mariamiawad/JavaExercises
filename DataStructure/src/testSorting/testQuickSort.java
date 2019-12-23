@@ -73,5 +73,31 @@ public class testQuickSort {
 		Integer[] list = context.executeStrategySortMedianOfThreeEmpty();
 		assertEquals(0, list.length);
 	}
+	
+	
+	@Test
+	public void testQuickSortThreeWayArrayOfInteger_RandomNumber_ReturnListOfIndexISmallerThanListOfIndexIPlusOne() {
+
+		ContextQuickSort context = new ContextQuickSort(new QuickSort());
+		Integer[] list = context.executeStrategySortThreeWay();
+		for (int i = 0; i < list.length - 1; i++) {
+			assert (list[i] <= list[i + 1]);
+		}
+	}
+
+	@Test
+	public void testQuickSortThreeWayOfInteger_RandomNumberBigSizeSortedArray_ReturnListOfIndexISmallerThanListOfIndexIPlusOne() {
+		ContextQuickSort context = new ContextQuickSort(new QuickSort());
+		Integer[] list = context.executeStrategySortThreeWaySortedArray();
+		for (int i = 0; i < list.length - 1; i++) {
+			assert (list[i] <= list[i + 1]);
+		}
+	}
+
+	public void testQuickSortThreeWayArrayOfInteger_EmptyArray_ReturnNoSuchElementException() {
+		ContextQuickSort context = new ContextQuickSort(new QuickSort());
+		Integer[] list = context.executeStrategySortMedianOfThreeEmpty();
+		assertEquals(0, list.length);
+	}
 
 }
