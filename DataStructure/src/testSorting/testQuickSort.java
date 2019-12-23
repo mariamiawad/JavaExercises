@@ -18,7 +18,7 @@ public class testQuickSort {
 			assert (list[i] <= list[i + 1]);
 		}
 	}
-
+	@Test
 	public void testQuickSortArrayOfInteger_EmptyArray_ReturnSizeZero() {
 		ContextQuickSort context = new ContextQuickSort(new QuickSort());
 		Integer[] list = context.executeStrategySortEmpty();
@@ -42,7 +42,7 @@ public class testQuickSort {
 			assert (list[i] <= list[i + 1]);
 		}
 	}
-
+	@Test
 	public void testQuickSortWithShuffleArrayOfInteger_EmptyArray_ReturnNoSuchElementException() {
 		ContextQuickSort context = new ContextQuickSort(new QuickSort());
 		Integer[] list = context.executeStrategySortWithSuffleEmpty();
@@ -67,7 +67,7 @@ public class testQuickSort {
 			assert (list[i] <= list[i + 1]);
 		}
 	}
-
+	@Test
 	public void testQuickSortMedianOfThreeArrayOfInteger_EmptyArray_ReturnNoSuchElementException() {
 		ContextQuickSort context = new ContextQuickSort(new QuickSort());
 		Integer[] list = context.executeStrategySortMedianOfThreeEmpty();
@@ -93,7 +93,7 @@ public class testQuickSort {
 			assert (list[i] <= list[i + 1]);
 		}
 	}
-
+	@Test
 	public void testQuickSortThreeWayArrayOfInteger_EmptyArray_ReturnNoSuchElementException() {
 		ContextQuickSort context = new ContextQuickSort(new QuickSort());
 		Integer[] list = context.executeStrategySortMedianOfThreeEmpty();

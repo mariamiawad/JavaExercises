@@ -2,7 +2,6 @@ package sorting;
 
 public class QuickSort implements StrategySorting {
 	public <T extends Comparable<T>> void sort(T[] arr) {
-
 		sort(arr, 0, arr.length - 1);
 
 	}
@@ -28,6 +27,7 @@ public class QuickSort implements StrategySorting {
 	}
 
 	private static <T extends Comparable<T>> void threeWayQuickSort(T[] array, int lo, int hi) {
+		
 		if (hi <= lo) {
 			return;
 		}

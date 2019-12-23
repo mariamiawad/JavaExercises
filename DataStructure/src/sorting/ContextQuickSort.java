@@ -66,25 +66,25 @@ public class ContextQuickSort {
 	}
 
 	public <T extends Comparable<T>> Integer[] executeStrategySortThreeWayEmpty() {
-		Integer[] list = new Integer[100000];
+		Integer[] list = {};
 		strategy.sort(list);
 		return list;
 	}
 
 	public <T extends Comparable<T>> Integer[] executeStrategySortEmpty() {
-		Integer[] list = new Integer[100000];
+		Integer[] list = {};
 		strategy.sort(list);
 		return list;
 	}
 
 	public <T extends Comparable<T>> Integer[] executeStrategySortWithSuffleEmpty() {
-		Integer[] list = new Integer[100000];
+		Integer[] list = {};
 		strategy.sortWithShuffle(list);
 		return list;
 	}
 
 	public <T extends Comparable<T>> Integer[] executeStrategySortMedianOfThreeEmpty() {
-		Integer[] list = new Integer[100000];
+		Integer[] list = {};
 		strategy.sortMedianOfThree(list);
 		return list;
 	}
