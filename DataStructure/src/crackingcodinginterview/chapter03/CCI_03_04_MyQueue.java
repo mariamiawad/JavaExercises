@@ -1,4 +1,4 @@
-package crackingcodinginterview.chapter02;
+package crackingcodinginterview.chapter03;
 
 public class CCI_03_04_MyQueue<T> {
 	
