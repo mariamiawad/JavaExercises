@@ -1,18 +1,11 @@
-package crackingcodinginterview;
+package crackingcodinginterview.chapter02;
 
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.Map;
-import java.util.Map.Entry;
 
-import arraylistlinkedlist.List;
-
-import java.util.Set;
-
-public class CCILinkedList {
+public class Exercise_02_01 {
 	
 	public <E> void removeDuplicates(LinkedList<E> list) {
+		// TODO - use set instead
 		LinkedList<E> newList = new LinkedList<>();
 		newList.add(list.get(0));
 		for (int i = 1; i < list.size(); i++) {
@@ -45,7 +38,7 @@ public class CCILinkedList {
 		list.add(9);
 		System.out.println(list);
 		
-		CCILinkedList listUtils = new CCILinkedList();
+		Exercise_02_01 listUtils = new Exercise_02_01();
 		listUtils.removeDuplicates(list);
 		System.out.println(list);
 		
