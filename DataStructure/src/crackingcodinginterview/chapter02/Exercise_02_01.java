@@ -1,22 +1,21 @@
 package crackingcodinginterview.chapter02;
 
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 public class Exercise_02_01 {
 	
 	public <E> void removeDuplicates(LinkedList<E> list) {
-		// TODO - use set instead
-		LinkedList<E> newList = new LinkedList<>();
-		newList.add(list.get(0));
-		for (int i = 1; i < list.size(); i++) {
-			if (!newList.contains(list.get(i))) {
-				newList.add(list.get(i));
-			}
+		Set<E> set = new LinkedHashSet<>();
+		for (int i = 0; i < list.size(); i++) {
+			set.add(list.get(i));
 		}
 		list.clear();
-		for (int i = 0; i < newList.size(); i++) {
-			list.add(newList.get(i));
+		for (E e : set) {
+			list.add(e);
 		}
+		
 	}
 
 	public static void main(String[] args) {
