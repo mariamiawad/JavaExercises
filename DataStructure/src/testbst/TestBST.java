@@ -315,6 +315,33 @@ public class TestBST {
 
 		}
 	}
+	@Test
+	public void testInsert_EmptyBST_PreOrder_PostOrder_InOrder() {
+		BST<Integer> tree = new BST<Integer>();
+		Iterable<Integer> it = tree.preorder();
+		Iterator<Integer> iterator = it.iterator();
+		while (iterator.hasNext()) {
+			Integer integer = (Integer) iterator.next();
+			System.out.print(integer + " ");
+
+		}
+		System.out.println();
+		it = tree.postorder();
+		iterator = it.iterator();
+		while (iterator.hasNext()) {
+			Integer integer = (Integer) iterator.next();
+			System.out.print(integer + " ");
+
+		}
+		System.out.println();
+		it = tree.inorder();
+		iterator = it.iterator();
+		while (iterator.hasNext()) {
+			Integer integer = (Integer) iterator.next();
+			System.out.print(integer + " ");
+
+		}
+	}
 
 
 }

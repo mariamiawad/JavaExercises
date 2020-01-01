@@ -81,6 +81,9 @@ public class BST<Key extends Comparable<Key>> implements Iterable<Key> {
 	}
 
 	private ArrayList<Key> inorder(Node root) {
+		if (root== null) {
+			return list;
+		}
 		if (root.left != null) {
 			inorder(root.left);
 		}
