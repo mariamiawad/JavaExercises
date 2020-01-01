@@ -85,7 +85,7 @@ public class MyArrayList<E> implements List<E>, Iterable<E> {
 		}
 		size--;
 
-		if (size <= 0.25 * capacity) {
+		if (size <= 0.25 * capacity  && size >= INITIAL_CAPACITY) {
 			resize(capacity / 2);
 		}
 		return returnE;

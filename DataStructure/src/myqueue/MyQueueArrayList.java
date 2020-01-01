@@ -31,7 +31,7 @@ public class MyQueueArrayList<E> implements Iterable<E> {
 		tail--;
 		size--;
 
-		if (size <= 0.25 * elements.length && size > INITIAL_CAPACITY) {
+		if (size <= 0.25 * elements.length && size >= INITIAL_CAPACITY) {
 			int tempSize = size;
 			resize(tempSize * 2);
 		}
