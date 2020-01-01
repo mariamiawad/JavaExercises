@@ -4,35 +4,36 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class BST<Key extends Comparable<Key>> implements Iterable<Key> {
-	private Node root = null;
+	Node root;
 	ArrayList<Key> list;
+
 	class Node {
 		Key key;
 		Node left, right;
+
 		Node(Key key) {
 			this.key = key;
 		}
 	}
 
 	public Node search(Key key) {
-		Node node = search(root, key);
+		Node node = search(this.root, key);
 		return node;
 	}
 
 	private Node search(Node node, Key key) {
-		Node current = root;
-		if (root.key == null || root.key.compareTo(key) == 0) {
-			return root;
-		} else if (current.key.compareTo(key) > 0) {
-			return search(node.left, key);
+		if (this.root.key == null || this.root.key.compareTo(key) == 0) {
+			return this.root;
+		} else if (this.root.key.compareTo(key) > 0) {
+			return search(this.root.left, key);
 		}
 
-		return search(node.right, key);
+		return search(this.root.right, key);
 
 	}
 
 	public void insert(Key key) {
-		insert(root, key);
+		this.root = insert(this.root, key);
 	}
 
 	private Node insert(Node root, Key key) {
@@ -49,24 +50,21 @@ public class BST<Key extends Comparable<Key>> implements Iterable<Key> {
 	}
 
 	public void delete(Key key) {
-		delete(root, key);
+		this.root = delete(root, key);
 	}
 
-	private Node delete(Node root,Key key) {
+	private Node delete(Node root, Key key) {
 		if (root == null) {
 			return root;
-		}
-		else if (key.compareTo(root.key)< 0) {
+		
+		} else if (key.compareTo(root.key) < 0) {
 			root.left = delete(root.left, key);
-		}
-		else if (key.compareTo(root.key)>0) {
+		} else if (key.compareTo(root.key) > 0) {
 			root.right = delete(root.right, key);
-		}
-		else {
+		} else {
 			if (root.left == null) {
 				return root.right;
-			}
-			else if (root.right == null) {
+			} else if (root.right == null) {
 				return root.left;
 			}
 			root = minValue(root.right);
@@ -76,27 +74,32 @@ public class BST<Key extends Comparable<Key>> implements Iterable<Key> {
 	}
 
 	public Iterable<Key> inorder() {
-		list = inorder(root);
+
+		list = new ArrayList<>();
+		list = inorder(this.root);
 		return list;
 	}
 
 	private ArrayList<Key> inorder(Node root) {
-		list = new ArrayList<>();
-		inorder(root.left);
+		if (root.left != null) {
+			inorder(root.left);
+		}
 		list.add(root.key);
-		inorder(root.right);
+		if (root.right != null) {
+			inorder(root.right);
+		}
+
 		return list;
 
 	}
-
-	
 
 	public Iterable<Key> preorder() {
-		list = preorder(root);
+		list = new ArrayList<>();
+		list = preorder(this.root);
 		return list;
 	}
+
 	private ArrayList<Key> preorder(Node root) {
-		list = new ArrayList<>();
 		if (root == null) {
 			return list;
 		}
@@ -108,11 +111,13 @@ public class BST<Key extends Comparable<Key>> implements Iterable<Key> {
 	}
 
 	public Iterable<Key> postorder() {
-		list = postorder(root);
+		list = new ArrayList<>();
+		list = postorder(this.root);
 		return list;
 	}
+
 	private ArrayList<Key> postorder(Node root) {
-		list = new ArrayList<>();
+
 		if (root == null) {
 			return list;
 		}
@@ -124,7 +129,7 @@ public class BST<Key extends Comparable<Key>> implements Iterable<Key> {
 	}
 
 	private Node minValue(Node root) {
-		
+
 		if (root.left != null) {
 			return minValue(root.left);
 		}
