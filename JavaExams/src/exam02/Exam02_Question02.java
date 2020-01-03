@@ -1,10 +1,10 @@
-package exam2;
+package exam02;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Exam2_Question2 {
+public class Exam02_Question02 {
 public static void main(String[] args) {
 	Scanner scanner = new Scanner(System.in);
 	List<Integer>list = new ArrayList<>();

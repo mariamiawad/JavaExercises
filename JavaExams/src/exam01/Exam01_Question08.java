@@ -1,4 +1,4 @@
-package exam1;
+package exam01;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public class Exam1_Question8 {
+public class Exam01_Question08 {
 	public static void main(String[] args) {
 		Random random = new Random();
 		List<Integer> list = new ArrayList<>();

@@ -1,22 +1,21 @@
-package exam2;
+package exam02;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Exam2_Question5 {
+public class Exam02_Question05 {
 	public static void main(String[] args) {
 		Scanner inputScanner = new Scanner(System.in);
-		int k = inputScanner.nextInt();
 		int length = inputScanner.nextInt();
 		int[] array = new int[length];
 		for (int i = 0; i < array.length; i++) {
 			array[i] = inputScanner.nextInt();
 		}
-		System.out.println(shakerSort(array, k));
+		shakerSort(array);
 		
 	}
 
-	private static int shakerSort(int[] array, int k) {
+	private static void shakerSort(int[] array) {
 		boolean flag = true;
 		int length = array.length;
 		int begin = 0;
@@ -47,7 +46,7 @@ public class Exam2_Question5 {
 
 		}
 
-		return array[k-1];
+		
 	}
 
 	private static void swap(int[] array, int i, int j) {

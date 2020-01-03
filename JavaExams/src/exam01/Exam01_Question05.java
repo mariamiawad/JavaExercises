@@ -1,8 +1,8 @@
-package exam1;
+package exam01;
 
 import java.util.Random;
 
-public class Exam1_Question5 {
+public class Exam01_Question05 {
 	public static void main(String[] args) {
 		int NUMBER_OF_TRIALS = 10000000;
 		int count = 0;

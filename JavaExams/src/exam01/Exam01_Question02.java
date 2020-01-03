@@ -1,10 +1,10 @@
-package exam1;
+package exam01;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class Exam1_Question2 {
+public class Exam01_Question02 {
 //a^3 +b^3 = (a+b)(a2+b2 -ab)
 	public static void main(String[] args) {
 		Map<Integer, Integer> map = new HashMap<>();

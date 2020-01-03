@@ -1,6 +1,6 @@
-package exam1;
+package exam01;
 
-public class Exam1_Question1 {
+public class Exam01_Question01 {
 	
 	public static void main(String[] args) {
 		int n = Math.abs(Integer.parseInt(args[0]));

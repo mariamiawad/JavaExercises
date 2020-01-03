@@ -1,10 +1,10 @@
-package exam2;
+package exam02;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Exam2_Question4 { //Function for swapping the characters at position I with character at position j  
+public class Exam02_Question04 { //Function for swapping the characters at position I with character at position j  
     public static List<String> swapString(String a, int i, int j) {  
     	char c;
     	List<String> strings = new ArrayList<>();

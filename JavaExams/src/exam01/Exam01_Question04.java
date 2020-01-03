@@ -1,8 +1,8 @@
-package exam1;
+package exam01;
 
 import java.util.Scanner;
 
-public class Exam1_Question4 {
+public class Exam01_Question04 {
 	public static void main(String[] args) {
 
 		Scanner inputScanner = new Scanner(System.in);
