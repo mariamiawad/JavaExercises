@@ -1,7 +1,6 @@
 package chapter18;
 
 import java.util.Scanner;
-import java.lang.*;
 
 public class Exercise_18_14 {
 	public static void main(String[] args) {
@@ -12,7 +11,6 @@ public class Exercise_18_14 {
 	}
 
 	private static int getNumberOfUperCaseLetters(Character[] characters, int i) {
-		int x;
 			if (i>= characters.length) {
 				return 0;
 			}
