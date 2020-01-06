@@ -12,12 +12,16 @@ import java.util.Scanner;
 public class Exercise_17_12 {
 	public static void main(String[] args) throws IOException {
 		Scanner scanner = new Scanner(System.in);
-		PrintWriter pw = new PrintWriter("output.txt");
-		List<String>list = new ArrayList<>();
-		String string ="";
-		while (!(string= scanner.next()).equals("B")) {
+		File file = new File("Target.txt");
+		if (!file.exists()) {
+			file.createNewFile();
+		}
+		PrintWriter pw = new PrintWriter(file);
+		List<String> list = new ArrayList<>();
+		String string = "";
+		while (!(string = scanner.next()).equals("B")) {
 			list.add(string);
-			
+
 		}
 		Object[] fileNames = list.toArray();
 		for (Object fileName : fileNames) {
@@ -25,7 +29,6 @@ public class Exercise_17_12 {
 			File f = new File((String) fileName);
 
 			BufferedReader br = new BufferedReader(new FileReader(f));
-			
 
 			String line = br.readLine();
 			while (line != null) {
@@ -33,9 +36,9 @@ public class Exercise_17_12 {
 				line = br.readLine();
 			}
 			pw.flush();
-			
+
 		}
-		
+
 	}
 
 }
