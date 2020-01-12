@@ -1,9 +1,6 @@
 package chapter14;
-import java.awt.Label;
-import java.util.Random;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

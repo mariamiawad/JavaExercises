@@ -110,7 +110,6 @@ public class MyArrayList<E> implements List<E>, Iterable<E> {
 			throw new IndexOutOfBoundsException();
 
 		}
-		// TODO - why return the old value?
 		// because it's what it should return according to Java Arraylist
 
 		E value = arrayList[index];
