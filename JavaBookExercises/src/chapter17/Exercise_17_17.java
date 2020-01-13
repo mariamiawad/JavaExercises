@@ -7,49 +7,57 @@ import java.io.IOException;
 public class Exercise_17_17 implements AutoCloseable {
 
 	private FileOutputStream file;
-	private int[] bits = new int[8];
+	private char[] bits = new char[8];
 	private int bitPos = 7;
 
 	public Exercise_17_17(File file2) throws IOException {
 		this.file = new FileOutputStream(file2);
+		for (int i = 0; i < bits.length; i++) {
+			bits[i] = '0';
+		}
 	}
 
 	public void writeBit(char bit) throws IOException {
-		if (bit != '0' || bit != '1') {
-			throw new IllegalArgumentException();
+		if (bit != '0' && bit != '1') {
+			throw new NumberFormatException();
 		}
-		if (bitPos < 0) {
-			try {
-				for (int i = 0; i < bits.length; i++) {
-					file.write(bits[i]);
-				}
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			}
-			bitPos = 7;
-		}
-		bits[bitPos] = bit;
-		bitPos--;
+		writeBit(bit + "");
 
 	}
 
 	public void writeBit(String bit) throws IOException {
-		for (int i = bit.length() - 1; i >= 0; i--) {
-			writeBit(bit.charAt(i));
-		}
-	}
-
-	public void close() {
-		for (int i = 0; i < bits.length; i++) {
-			if (bits[i] != 0) {
+		for (int i = 0; i < bit.length(); i++) {
+			if (bit.charAt(i) != '0' && bit.charAt(i) != '1') {
+				throw new NumberFormatException();
+			}
+			bits[bitPos] = bit.charAt(i);
+			bitPos--;
+			String string = "";
+			if (bitPos < 0) {
 				try {
-					file.write(bits[i]);
-				} catch (IOException e) {
+					for (int j = 0; j < bits.length; j++) {
+						string += bits[j];
+						bits[j] = '0';
+					}
+					file.write(String.valueOf(string).getBytes());
+				} catch (NumberFormatException e) {
 					e.printStackTrace();
 				}
-				bits[i] = 0;
+				bitPos = 7;
 			}
+
 		}
+
+	}
+
+	public void close() throws IOException {
+		String string = "";
+		for (int i = 0; i < bits.length; i++) {
+			string += bits[i];
+			bits[i] = '0';
+
+		}
+		file.write(String.valueOf(string).getBytes());
 
 	}
 
