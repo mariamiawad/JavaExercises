@@ -34,9 +34,9 @@ public class Exercise_14_26 extends Application {
 		Line hoursLine1 = drawLine(-300, 50, circle1, -10);
 		Line minuteLine1 = drawLine(-290, 50, circle1, -5);
 		Line secondsLine1 = drawLine(-100, 50, circle1, 10);
-		Line hoursLine2 = drawLine(-130, 50, circle2,10);
+		Line hoursLine2 = drawLine(-130, 50, circle2, 10);
 		Line minuteLine2 = drawLine(-104, 50, circle2, 5);
-		Line secondsLine2 = drawLine(-280, 50, circle2,-10);
+		Line secondsLine2 = drawLine(-280, 50, circle2, -10);
 		Label label12 = new Label("12");
 		Label label03 = new Label("3");
 		Label label06 = new Label("6");
