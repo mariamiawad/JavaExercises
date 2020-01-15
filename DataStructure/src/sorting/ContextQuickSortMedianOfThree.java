@@ -2,10 +2,10 @@ package sorting;
 
 import java.util.Random;
 
-public class ContextQuickSort {
+public class ContextQuickSortMedianOfThree {
 	private StrategySorting strategy;
 
-	public ContextQuickSort(StrategySorting strategy) {
+	public ContextQuickSortMedianOfThree(StrategySorting strategy) {
 		this.strategy = strategy;
 	}
 
@@ -16,19 +16,9 @@ public class ContextQuickSort {
 		return list;
 	}
 
-	
-
 	public <T extends Comparable<T>> Integer[] executeStrategySortSortedArray() {
 		Integer[] list = new Integer[10];
 		generateArray(list, 0, 0);
-		strategy.sort(list);
-		return list;
-	}
-
-	
-
-	public <T extends Comparable<T>> Integer[] executeStrategySortThreeWayEmpty() {
-		Integer[] list = {};
 		strategy.sort(list);
 		return list;
 	}
@@ -38,8 +28,6 @@ public class ContextQuickSort {
 		strategy.sort(list);
 		return list;
 	}
-
-	
 
 	private Integer[] generateArray(Integer[] list, int currentValue, int lastValue) {
 		Random random = new Random();

@@ -3,7 +3,7 @@ import java.util.Random;
 public class BubbleSort {
 
 	public BubbleSort() {
-		// 
+		
 	}
 
 	public static void bubbleSort(int array[]) {

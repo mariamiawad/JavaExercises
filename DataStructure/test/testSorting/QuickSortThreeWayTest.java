@@ -1,17 +1,19 @@
 package testSorting;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import sorting.ContextQuickSort;
-import sorting.QuickSort;
+import sorting.ContextQuickSortThreeWay;
+import sorting.ContextQuickSortWithShuffle;
+import sorting.QuickSortThreeWay;
+import sorting.QuickSortWithShuffle;
 
-public class testQuickSort {
+public class QuickSortThreeWayTest {
 
 	@Test
 	public void testQuickSortArrayOfInteger_RandomNumberBigSizeSortedArray_ReturnListOfIndexISmallerThanListOfIndexIPlusOne() {
-		ContextQuickSort context = new ContextQuickSort(new QuickSort());
+		ContextQuickSortThreeWay context = new ContextQuickSortThreeWay(new QuickSortThreeWay());
 		Integer[] list = context.executeStrategySort();
 
 		for (int i = 0; i < list.length - 1; i++) {
@@ -20,7 +22,7 @@ public class testQuickSort {
 	}
 	@Test
 	public void testQuickSortArrayOfInteger_EmptyArray_ReturnSizeZero() {
-		ContextQuickSort context = new ContextQuickSort(new QuickSort());
+		ContextQuickSortThreeWay context = new ContextQuickSortThreeWay(new QuickSortThreeWay());
 		Integer[] list = context.executeStrategySortEmpty();
 		for (int i = 0; i < list.length-1; i++) {
 			assert(list[i]<=list[i+1]);
@@ -28,7 +30,7 @@ public class testQuickSort {
 	}
 	@Test
 	public void testQuickSortArrayOfInteger_SortedArray_ReturnSizeZero() {
-		ContextQuickSort context = new ContextQuickSort(new QuickSort());
+		ContextQuickSortThreeWay context = new ContextQuickSortThreeWay(new QuickSortThreeWay());
 		Integer[] list = context.executeStrategySortSortedArray();
 		for (int i = 0; i < list.length-1; i++) {
 			assert(list[i]<=list[i+1]);

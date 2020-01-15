@@ -4,29 +4,40 @@ public class HeapSort implements StrategySorting {
 
 	@Override
 	public <T extends Comparable<T>> void sort(T[] array) {
-		// TODO - Implement this method
+		int n = array.length;
+		for (int i = n / 2 - 1; i >= 0; i--) {
+			heapify(array, n, i);
+		}
+		for (int i = n - 1; i >= 0; i--) {
+			swap(array, 0, i);
+			heapify(array, i, 0);
+		}
 
 	}
 
-	@Override
-	public <T extends Comparable<T>> void sortWithShuffle(T[] arr) {
-		// TODO - Don't implement this, but you will need to remove this from the interface
-		// This method should not be in the interface
-		// You should have a separate class called QuickSortWithShuffle that has one single method sort(T[] array)
-		// like the previous method
-
+	private <T extends Comparable<T>> void heapify(T[] array, int n, int i) {
+		int largest = i;
+		int l = 2 * i + 1;
+		int r = 2 * i + 2;
+		if (l < n && array[l].compareTo(array[i]) > 0) {
+			largest = l;
+		}
+		if (r < n && array[r].compareTo(array[largest]) > 0) {
+			largest = r;
+		}
+		if (largest != i) {
+			swap(array, i, largest);
+			heapify(array, n, largest);
+		}
 	}
 
-	@Override
-	public <T extends Comparable<T>> void sortMedianOfThree(T[] arr) {
-		// TODO - same as above
-
+	private <T extends Comparable<T>> void swap(T[] array, int i, int j) {
+		T temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
 	}
 
-	@Override
-	public <T extends Comparable<T>> void threeWayQuickSort(T[] arr) {
-		// TODO - same as above
-
-	}
+	
+	
 
 }

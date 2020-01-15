@@ -26,6 +26,7 @@ public class Exam03_Question02 {
 			}
 			System.out.print(string2);
 		}
+
 	}
 	
 }

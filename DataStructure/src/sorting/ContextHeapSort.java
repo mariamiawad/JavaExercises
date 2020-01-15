@@ -2,10 +2,11 @@ package sorting;
 
 import java.util.Random;
 
-public class ContextQuickSort {
+public class ContextHeapSort {
+
 	private StrategySorting strategy;
 
-	public ContextQuickSort(StrategySorting strategy) {
+	public ContextHeapSort(StrategySorting strategy) {
 		this.strategy = strategy;
 	}
 
@@ -60,4 +61,5 @@ public class ContextQuickSort {
 		}
 		return list;
 	}
+
 }
