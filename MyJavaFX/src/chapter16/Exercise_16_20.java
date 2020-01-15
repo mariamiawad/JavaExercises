@@ -25,7 +25,7 @@ public class Exercise_16_20 extends Application {
 	private Text hoursLabel = new Text("00 :");
 	private Text minutesLabel = new Text("00 :");
 	private Text secondsLabel = new Text("00");
-	private Timeline timeline ;
+	private Timeline timeline;
 	private boolean reset = false;
 
 	public static void main(String[] args) {
@@ -53,39 +53,42 @@ public class Exercise_16_20 extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 
-		 timeline = new Timeline(new KeyFrame(Duration.seconds(0), e -> advanceDuration()),
+		timeline = new Timeline(new KeyFrame(Duration.seconds(0), e -> advanceDuration()),
 				new KeyFrame(Duration.seconds(1)));
 		timeline.setCycleCount(Animation.INDEFINITE);
 		startButton.setOnAction(e -> {
 			if (startButton.getText().equalsIgnoreCase("start")) {
 				startButton.setText("Stop");
-				
+
 				timeline.play();
-				
-			} else {
+
+			} else if (startButton.getText().equalsIgnoreCase("stop")) {
 				startButton.setText("Start");
 				timeline.pause();
-				
+
 			}
 
 		});
-		resetButton.setOnAction(e->{
-		reset = true;
-		hoursLabel.setText( "00 :");
-		minutesLabel.setText( "00 :");
-		secondsLabel.setText( "00");
-		hours = 0;
-		seconds = 0;
-		minutes = 0;
-		timeline.stop();
+		resetButton.setOnAction(e -> {
+			if (startButton.getText().equalsIgnoreCase("start")) {
+				startButton.setText("Stop");
+			}
+			reset = true;
+			hoursLabel.setText("00 :");
+			minutesLabel.setText("00 :");
+			secondsLabel.setText("00");
+			hours = 0;
+			seconds = 0;
+			minutes = 0;
+			timeline.stop();
 		});
 	}
 
 	private void advanceDuration() {
 		if (seconds < 59) {
-			
+
 			seconds++;
-			
+
 		} else {
 			seconds = 0;
 			if (minutes < 59) {
@@ -99,26 +102,23 @@ public class Exercise_16_20 extends Application {
 	}
 
 	private void updateDisplay() {
-		if (hours<10) {
-			hoursLabel.setText("0"+hours +" :" );
-		}
-		else {
+		if (hours < 10) {
+			hoursLabel.setText("0" + hours + " :");
+		} else {
 			hoursLabel.setText(hours + " :");
-			
+
 		}
-		if (minutes<10) {
-			minutesLabel.setText("0"+minutes+" :");
-		}
-		else {
+		if (minutes < 10) {
+			minutesLabel.setText("0" + minutes + " :");
+		} else {
 			minutesLabel.setText(minutes + " : ");
 		}
-		if (seconds<10) {
-			secondsLabel.setText("0"+seconds);
-		}
-		else {
+		if (seconds < 10) {
+			secondsLabel.setText("0" + seconds);
+		} else {
 			secondsLabel.setText(seconds + "");
 		}
-		
+
 	}
-	
+
 }
