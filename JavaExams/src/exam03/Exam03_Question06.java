@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 import sorting.QuickSort;
+import sorting.QuickSortMedianOfThree;
 
 public class Exam03_Question06 {
 public static void main(String[] args) {
@@ -19,7 +20,7 @@ public static void main(String[] args) {
 	}
 	List<Integer> list = new ArrayList<>();
 	list.addAll(set);
-	QuickSort sort = new QuickSort();
+	QuickSortMedianOfThree sort = new QuickSortMedianOfThree();
 	Integer[]array = list.toArray(new Integer[list.size()]);
 	sort.sort(array);
 	for (int i = 0; i < array.length; i++) {
