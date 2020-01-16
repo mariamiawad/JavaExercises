@@ -21,7 +21,7 @@ public static void main(String[] args) {
 	list.addAll(set);
 	QuickSort sort = new QuickSort();
 	Integer[]array = list.toArray(new Integer[list.size()]);
-	sort.sortMedianOfThree(array);
+	sort.sort(array);
 	for (int i = 0; i < array.length; i++) {
 		System.out.print(array[i]+" ");
 	}
