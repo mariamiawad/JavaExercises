@@ -23,7 +23,28 @@ public class Exercise_13_15 extends Number implements Comparable<Exercise_13_15>
 		 System.out.println("r1 * r2 * r3 is " +
 		 r1.multiply(r2.multiply(r3)));
 		 }
+public Exercise_13_15(String decimal) {
 
+    int index = (decimal.contains(".")) ? decimal.indexOf('.') : decimal.indexOf('/');
+    BigInteger d;
+    BigInteger n;
+    // if string is in decimal form
+    if (decimal.contains(".")) {
+        int power = decimal.substring(index + 1, decimal.length()).length();
+        d =BigInteger.valueOf((long) Math.pow(10,power));
+        n = new BigInteger(new StringBuilder(decimal).deleteCharAt(index).toString());
+    } else {
+        // if string contains '/'
+        n = new BigInteger(decimal.substring(0, index));
+        d = new BigInteger(decimal.substring(index + 1, decimal.length()));
+    }
+
+    BigInteger gcd = gcd(n, d);
+    this.numerator = ((d.compareTo(BigInteger.ZERO) > 0) ? BigInteger.ONE :  BigInteger.valueOf(-1)).multiply(n).divide(gcd);
+    this.denominator = d.abs().divide(gcd);
+
+
+}
 	/** Construct a rational with specified numerator and denominator */
 	public Exercise_13_15(BigInteger numerator, BigInteger denominator) {
 		BigInteger gcd = gcd(numerator, denominator);
