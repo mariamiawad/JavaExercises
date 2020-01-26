@@ -1,10 +1,29 @@
 package crackingcodinginterview.chapter16;
 
+import java.math.BigDecimal;
+
 public class CCI_16_05_FactorialZeros {
 	
 	public int factorialZeros(int x) {
-		// TODO - Implement this method
-		return 0;
+		BigDecimal n = getFactorial(x);
+		String s = n+"";
+		int count = 0;
+		for (int i = s.length()-1; i>=0; i--) {
+			if (s.charAt(i)=='0') {
+				count++;
+			}
+			else {
+				break;
+			}
+		}
+		return count;
+	}
+	private BigDecimal getFactorial(int x) {
+		if (x==0) {
+			return BigDecimal.ONE;
+		}
+		return getFactorial(x-1).multiply(BigDecimal.valueOf(x));
+		
 	}
 
 	public static void main(String[] args) {
