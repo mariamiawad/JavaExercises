@@ -30,7 +30,7 @@ public class Exercise_15_28 extends Application {
 		FanPane fanPane = new FanPane(100);
 
 			borderPane = new BorderPane(fanPane);
-			borderPane.setTop(fanPane.hButtons);
+			borderPane.setBottom(fanPane.hButtons);
 			
 			borderPane.setStyle("-fx-border-color: black;");
 		
