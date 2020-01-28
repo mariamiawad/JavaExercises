@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -16,7 +17,7 @@ import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
 public class Exercise_18_19 extends Application {
-	int count = 1;
+	int count = -1;
 	final KeyCombination combo1 = new KeyCodeCombination(KeyCode.EQUALS, KeyCodeCombination.SHIFT_DOWN);
 
 	public static void main(String[] args) {
@@ -30,7 +31,9 @@ public class Exercise_18_19 extends Application {
 		// Pane to hold label, text field, and a button
 		HBox hBox = new HBox(10);
 		hBox.setAlignment(Pos.CENTER);
-
+		Button plusButton = new Button("+");
+		Button minusButton = new Button("-");
+		hBox.getChildren().addAll(plusButton, minusButton);
 		BorderPane borderPane = new BorderPane();
 		borderPane.setCenter(trianglePane);
 		borderPane.setBottom(hBox);
@@ -40,28 +43,35 @@ public class Exercise_18_19 extends Application {
 		primaryStage.setTitle("SierpinskiTriangle"); // Set the stage title
 		primaryStage.setScene(scene); // Place the scene in the stage
 		primaryStage.show(); // Display the stage
-		scene.addEventHandler(KeyEvent.KEY_RELEASED, (key) -> {
 
-			if (key.getCode().equals(KeyCode.MINUS)) {
+		minusButton.setOnAction(e -> {
+
+			if (count == 0) {
 				count--;
-				if (count <= 0) {
-					count=0;
-					trianglePane.setOrder(count);
-					trianglePane.paint();
-				} else {
-					count--;
-					trianglePane.setOrder(count);
-					trianglePane.paint();
-				}
+				count = 0;
+				trianglePane.setOrder(count);
+
+			} else if (count < 0) {
+
+			} else {
+				count--;
+				trianglePane.setOrder(count);
+
 			}
 
-			else if (combo1.match(key) || key.getCode().equals(KeyCode.PLUS)) {
-				count++;
-				trianglePane.setOrder(count);
-				trianglePane.paint();
+		});
 
+		plusButton.setOnAction(e -> {
+
+			count++;
+			if (count <= 0) {
+				count = 0;
+				trianglePane.setOrder(count);
+			} else {
+				trianglePane.setOrder(count);
 			}
 		});
+
 	}
 
 	/** Pane for displaying triangles */
