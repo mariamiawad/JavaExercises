@@ -109,17 +109,15 @@ public class Exercise_20_13 extends Application {
 
 	}
 
-	public String getString() {
-		String s = "";
+	public void getString() {
 		for (int i = 0; i < 4; i++) {
 
 			int number = ThreadLocalRandom.current().nextInt(1, 14);
 
 			integers.add(number);
 
-			s += number + "";
 		}
-		return s;
+		
 	}
 
 	private void shuffle() {
