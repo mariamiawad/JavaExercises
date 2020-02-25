@@ -33,7 +33,7 @@ public class Exercise_14_03 extends Application {
 		for (int i = 0; i < 3; i++) {
 			int intLetter = random.nextInt(4) + 1;
 			int number = random.nextInt(13) + 1;
-			String string = "file:///C:/Users/maria/eclipse-workspace/MyJavaFX/src/14.3/Cards/";
+			String string = "file:///C://Users//maria//eclipse-workspace//MyJavaFX//src//Cards//";
 			switch (intLetter) {
 			case 1:
 				string += number + "C.png";

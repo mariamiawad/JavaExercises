@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
 public class Exercise_16_11_Histogram extends Pane {
+	
 	private int[] counts = new int[26];
 	private char[] chars = new char[26];
 	GridPane pane = new GridPane();

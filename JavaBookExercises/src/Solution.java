@@ -1,50 +1,62 @@
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
 
-public abstract class Test<E extends Object> {
-	public static void main(String[] args) {
-		System.out.println(solution("Sat", 23));
-	}
+class Result {
 
-	public static String solution(String S, int K) {
-		int total = K + getNumber(S);
-		if (total % 7 == 0) {
-			return "Mon";
-		} else if (total % 7 == 1) {
-			return "Tue";
-		} else if (total % 7 == 2) {
-			return "Wed";
-		} else if (total % 7 == 3) {
-			return "Thu";
-		} else if (total % 7 == 4) {
-			return "Fri";
-		} else if (total % 7 == 5) {
-			return "Sat";
-		} else if (total % 7 == 6) {
-			return "Sun";
+	/*
+	 * Complete the 'solve' function below.
+	 *
+	 * The function is expected to return an INTEGER. The function accepts following
+	 * parameters: 1. INTEGER h 2. INTEGER_ARRAY wallPoints 3. INTEGER_ARRAY lengths
+	 */
+
+	public static int solve(int h, List<Integer> wallPoints, List<Integer> lengths) {
+		List<Double> list = new ArrayList<>();
+		int max = 0;
+		double percentage = 25;
+
+		for (int i = 0; i < wallPoints.size() && i < lengths.size(); i++) {
+			int x = lengths.get(i);
+			double result = wallPoints.get(i) - ((x * percentage) / 100)-h;
+
+			list.add(result);
 		}
-		return null;
-	}
 
-	public static int getNumber(String S) {
-		int number = 0;
-		if (S.equalsIgnoreCase("Mon")) {
-			number = 0;
-		} else if (S.equalsIgnoreCase("Tue")) {
-			number = 1;
-		} else if (S.equalsIgnoreCase("Wed")) {
-			number = 2;
-		} else if (S.equalsIgnoreCase("Thu")) {
-			number = 3;
-		} else if (S.equalsIgnoreCase("Fri")) {
-			number = 4;
-		} else if (S.equalsIgnoreCase("Sat")) {
-			number = 5;
-		} else if (S.equalsIgnoreCase("Sun")) {
-			number = 6;
+		for (int i = 0; i < list.size(); i++) {
+			if (max < list.get(i)) {
+				max = (int) Math.ceil(list.get(i));
+			}
 		}
-		return number;
-
+		return max;
 	}
 
+}
+
+public class Solution {
+	public static void main(String[] args) throws IOException {
+		Scanner scanner = new Scanner(System.in);
+
+		int n = scanner.nextInt();
+		List<Integer> wallPoints = new ArrayList<>();
+		List<Integer> lengths = new ArrayList<>();
+		int h = scanner.nextInt();
+		for (int i = 0; i < n; i++) {
+			wallPoints.add(scanner.nextInt());
+		}
+		for (int i = 0; i < n; i++) {
+			lengths.add(scanner.nextInt());
+		}
+		int answer = Result.solve(h, wallPoints, lengths);
+		System.out.println(answer);
+
+	}
 }

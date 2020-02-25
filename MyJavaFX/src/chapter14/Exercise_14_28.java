@@ -27,6 +27,7 @@ public class Exercise_14_28 extends Application {
 		ClockPane clock = new ClockPane();
 		clock.setHourHandVisible(true);
 		clock.setMinuteHandVisible(true);
+		
 		clock.setHour(ThreadLocalRandom.current().nextInt(0, 12));
 		int x = ThreadLocalRandom.current().nextInt(0,2);
 		if (x==0) {
