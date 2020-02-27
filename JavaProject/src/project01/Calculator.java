@@ -136,13 +136,12 @@ public class Calculator extends Application {
 	private void showInputUsingButtons(ActionEvent event) {
 		String[] tokens = string.split(" ");
 		String digit = "";
-		if (tokens.length>1) {
+		if (tokens.length > 1) {
 			digit = tokens[tokens.length - 2];
+		} else {
+			digit = tokens[tokens.length - 1];
 		}
-		else {
-			digit = tokens[tokens.length-1];
-		}
-		 
+
 		if (calculate == 0 && (event.getSource().equals(minus) || event.getSource().equals(plus)
 				|| event.getSource().equals(multiply) || event.getSource().equals(divide))) {
 			isCalculated = false;
@@ -214,18 +213,18 @@ public class Calculator extends Application {
 			}
 
 		} else if (event.getSource().equals(minus)) {
-			if (digit.length()>0) {
-				if (Character.isDigit(digit.charAt(digit.length()-1))) {
+			if (digit.length() > 0) {
+				if (Character.isDigit(digit.charAt(digit.length() - 1))) {
 					string += " - ";
-					
-				}
-				else {
-					string+= "-";
+
+				} else if (!digit.endsWith("--")) {
+					string += "-";
 				}
 			}
-			
-			else  {
-				string+= "-";
+
+			else {
+
+				string += "-";
 			}
 			inputField.setText(string);
 
@@ -313,7 +312,20 @@ public class Calculator extends Application {
 			}
 
 		} else if (e.getCode().equals(KeyCode.SUBTRACT) || e.getCode().equals(KeyCode.MINUS)) {
-			string += "-";
+			if (digit.length() > 0) {
+				if (Character.isDigit(digit.charAt(digit.length() - 1))) {
+					string += " - ";
+
+				} else if (!digit.endsWith("--")) {
+					string += "-";
+				}
+			}
+
+			else {
+
+				string += "-";
+			}
+
 			inputField.setText(string);
 		} else if (e.getCode().equals(KeyCode.DIVIDE) || e.getCode().equals(KeyCode.SLASH)
 				&& (tokens[tokens.length - 1] != "+" && tokens[tokens.length - 1] != "*") && digit.length() > 0) {
