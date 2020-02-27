@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 public class Exercise_20_15 extends Application {
 	ArrayList<Integer> integers = new ArrayList<>();
 	GridPane pane = new GridPane();
-
+	static ArrayList<String> list = new ArrayList<>();
 	public static void main(String[] args) {
 
 		Application.launch(args);
@@ -41,7 +41,7 @@ public class Exercise_20_15 extends Application {
 		pane.setAlignment(Pos.CENTER);
 		borderPane.setCenter(pane);
 		HBox resultBox = new HBox(10);
-		resultBox.getChildren().addAll(findSolutionButton, findSolution, shuffleButton);
+		resultBox.getChildren().addAll(findSolutionButton, findSolution, shuffleButton,resultLabel);
 		HBox answerBox = new HBox(10);
 		answerBox.getChildren().addAll(answerLabel, answerField, verifyButton);
 		borderPane.setTop(resultBox);
@@ -59,6 +59,7 @@ public class Exercise_20_15 extends Application {
 
 		});
 		verifyButton.setOnAction(e -> {
+			test();
 			ArrayList<Integer> arrayList = (ArrayList<Integer>) integers.clone();
 			boolean flag = true;
 			String answer = answerField.getText();
@@ -106,14 +107,14 @@ public class Exercise_20_15 extends Application {
 				}
 			}
 
-			if (calculatorClass.evaluateExpression(answer) == 24 && flag) {
+			if (calculatorClass.evaluateExpression(answer) == 24 && flag&& list.contains(answer)) {
 				resultLabel.setText("Correct");
 			} else if (!flag) {
 				resultLabel.setText("The numbers in the expression don't match the numbers in the set");
-			} else if (calculatorClass.evaluateExpression(answer) != 24) {
+			} else if (!list.contains(answer)) {
 				resultLabel.setText("Incorrect result");
 			}
-
+			list = new ArrayList<>();
 		});
 		Scene scene = new Scene(borderPane, 300, 300);
 		primaryStage.setTitle("Exercise_14_3");
@@ -260,23 +261,23 @@ public class Exercise_20_15 extends Application {
 		}
 	}
 
-	static ArrayList<String> list = new ArrayList<>();
+	
 
 	private void tryAllOrders(int a, int b, int c, int d, Op op1, Op op2, Op op3, int target) {
 		if (op3.op(op2.op(op1.op(a, b), c), d) == target) {
-			list.add("    ((" + a + op1 + b + ")" + op2 + c + ")" + op3 + d + "=" + target);
+			list.add("((" + a + op1 + b + ")" + op2 + c + ")" + op3 + d );
 		}
 		if (op3.op(op1.op(a, op2.op(b, c)), d) == target) {
-			list.add("    (" + a + op1 + "(" + b + op2 + c + "))" + op3 + d + "=" + target);
+			list.add("(" + a + op1 + "(" + b + op2 + c + "))" + op3 + d );
 		}
 		if (op2.op(op1.op(a, b), op3.op(c, d)) == target) {
-			list.add("    (" + a + op1 + b + ")" + op2 + "(" + c + op3 + d + ")=" + target);
+			list.add("(" + a + op1 + b + ")" + op2 + "(" + c + op3 + d + ")");
 		}
 		if (op1.op(a, op3.op(op2.op(b, c), d)) == target) {
-			list.add("    " + a + op1 + "((" + b + op2 + c + ")" + op3 + d + ")=" + target);
+			list.add( a +""+ op1 + "((" + b + op2 + c + ")" + op3 + d + ")");
 		}
 		if (op1.op(a, op2.op(b, op3.op(c, d))) == target) {
-			list.add("    " + a + op1 + "(" + b + op2 + "(" + c + op3 + d + "))=" + target);
+			list.add( a+"" + op1 + "(" + b + op2 + "(" + c + op3 + d + "))" + target);
 		}
 	}
 
