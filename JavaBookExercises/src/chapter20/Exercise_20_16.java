@@ -12,34 +12,51 @@ public class Exercise_20_16 {
 	}
 
 	public static String infixToPostfix(String expression) {
-		expression = expression.replace("(", "");
-		expression = expression.replace(")", "");
-		String[] strings = expression.split(" ");
-		Stack<String> stack = new Stack<>();
-		Stack<String> charachterStack = new Stack<>();
+
+		Stack<Character> stack = new Stack<>();
+		Stack<Character> charachterStack = new Stack<>();
 		String string = "";
-		for (int i = 0; i < strings.length; i++) {
-			String s = strings[i];
-			if (isNumeric(s)) {
-				string += s+" ";
+		for (int i = 0; i < expression.length(); i++) {
+			char ch = expression.charAt(i);
+			if (Character.isDigit(ch) || Character.isSpace(ch)) {
+				stack.push(expression.charAt(i));
+			} else if (charachterStack.isEmpty() && ch != ')') {
+				charachterStack.push(ch);
 			}
-			else if (s.equals("+")|| s.equals("-")) {
-				stack.push(s);
-				
-			}
-			else if (s.equals("*") ||  s.equals("/")) {
-				if (!stack.isEmpty()) {
-					string += stack.pop()+" ";
-					
+
+			else if (!charachterStack.isEmpty()) {
+				if ((charachterStack.peek() == '*' && ch == '/') || (charachterStack.peek() == '/' && ch == '*')
+						|| (charachterStack.peek() == '*' && ch == '*')
+						|| (charachterStack.peek() == '/' && ch == '/')) {
+					stack.push(charachterStack.pop());
+					charachterStack.push(ch);
+				} else {
+					charachterStack.push(ch);
 				}
-				stack.push(s);
+			}
+			if (ch == ')') {
+				while (!charachterStack.isEmpty()) {
+					if (charachterStack.peek() == ')' || charachterStack.peek() == '(') {
+						charachterStack.pop();
+						continue;
+					}
+					stack.push(charachterStack.pop());
+				}
 			}
 
 		}
-		while (!stack.isEmpty()) {
-			string+=stack.pop()+" ";
+		while (!charachterStack.isEmpty()) {
+			stack.push(charachterStack.pop());
 		}
-		
+		Stack<Character> newStack = new Stack<>();
+		while (!stack.isEmpty()) {
+			newStack.push(stack.pop());
+
+		}
+
+		while (!newStack.isEmpty()) {
+			string += newStack.pop();
+		}
 		return string;
 	}
 
