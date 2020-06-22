@@ -1,0 +1,129 @@
+BEGIN:VCALENDAR
+METHOD:REQUEST
+PRODID:Microsoft Exchange Server 2010
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:Egypt Standard Time
+BEGIN:STANDARD
+DTSTART:16010101T000000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0200
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010101T000000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0200
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+ORGANIZER;CN="Wessam Tarek, Vodafone Egypt":MAILTO:Wessam.Tarek@vodafone.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=alaa186@ic
+ loud.com:MAILTO:alaa186@icloud.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=ammaryasse
+ r_2009@hotmail.com:MAILTO:ammaryasser_2009@hotmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=arwa.elmow
+ afy1996@gmail.com:MAILTO:arwa.elmowafy1996@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=aya.hussei
+ n3107@gmail.com:MAILTO:aya.hussein3107@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=basma.elsa
+ yed159@gmail.com:MAILTO:basma.elsayed159@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=esraa.alsa
+ wah19@gmail.com:MAILTO:esraa.alsawah19@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=ghada.mans
+ our1997@gmail.com:MAILTO:ghada.mansour1997@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=heshambada
+ wi94@gmail.com:MAILTO:heshambadawi94@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Mahmoud.al
+ shker10@gmail.com:MAILTO:Mahmoud.alshker10@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=mahmoud.sa
+ lem432@gmail.com:MAILTO:mahmoud.salem432@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=mahmoudbai
+ ioumy@gmail.com:MAILTO:mahmoudbaiioumy@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Mariam.i.a
+ wad@gmail.com:MAILTO:Mariam.i.awad@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=mayarmahmo
+ ud306@gmail.com:MAILTO:mayarmahmoud306@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=elhalag93@
+ gmail.com:MAILTO:elhalag93@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=mohamed.al
+ bosaily@gmail.com:MAILTO:mohamed.albosaily@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=mohsenzaka
+ ria63@gmail.com:MAILTO:mohsenzakaria63@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=mostafa.mo
+ hd96@hotmail.co.uk:MAILTO:mostafa.mohd96@hotmail.co.uk
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=muhammad.f
+ aramawi@gmail.com:MAILTO:muhammad.faramawi@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=mustafalsh
+ eikhh@gmail.com:MAILTO:mustafalsheikhh@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=hekalnourh
+ an@gmail.com:MAILTO:hekalnourhan@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=omarabsawy
+ @gmail.com:MAILTO:omarabsawy@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=oelberkawy
+ @gmail.com:MAILTO:oelberkawy@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=omar.elham
+ shary94@gmail.com:MAILTO:omar.elhamshary94@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=omar.khale
+ d4297@gmail.com:MAILTO:omar.khaled4297@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Pierreemad
+ 1@hotmail.com:MAILTO:Pierreemad1@hotmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=safwan.mah
+ moud94@gmail.com:MAILTO:safwan.mahmoud94@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=ysalma930@
+ gmail.com:MAILTO:ysalma930@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Seifgaball
+ ah@gmail.com:MAILTO:Seifgaballah@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=youssef.el
+ messiry92@gmail.com:MAILTO:youssef.elmessiry92@gmail.com
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=bakrbadr9@
+ gmail.com:MAILTO:bakrbadr9@gmail.com
+ATTENDEE;ROLE=OPT-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN="Mohamed Wa
+ ssal, Vodafone Egypt":MAILTO:Mohamed.Wassal@vodafone.com
+ATTENDEE;ROLE=OPT-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN="Nancy yous
+ sef, Vodafone Egypt":MAILTO:Nancy.youssef@vodafone.com
+ATTENDEE;ROLE=OPT-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN="Farouk Bed
+ ier, Vodafone Egypt":MAILTO:Farouk.Bedier@vodafone.com
+DESCRIPTION;LANGUAGE=en-US:Hello\,\n\nKindly be informed that the exam’s 
+ link will be sent on Wednesday at 10:45AM. The exam will be availed at 11:
+ 00AM and will be closed by 12:30PM.\n\nPlease read the below notes careful
+ ly before starting the exam:\n\n1.       The original duration was 3 hours
+  but was squeezed to 1.5 hours to prevent examinees from searching for ans
+ wers online.\n\n2.       The whole exam must be submitted before 12:30PM t
+ o avoid automatic closure. Your answers will not be saved if the exam is a
+ utomatically closed.\n\n3.       Make sure that you have a proper connecti
+ on and that the email is not marked as SPAM to receive the link on time.\n
+ \n4.       During the exam\, make sure to answer as much as you can and sk
+ ip the questions that you don’t know to submit the whole exam on time. W
+ e’ve already gathered your technical concerns and will be considered dur
+ ing the evaluation.\n\n5.       For any issues\, please call one of the be
+ low\n\na.       Nancy Youssef: 01017028759\n\nb.       Farouk Bedier: 0109
+ 8000509\n\nc.       Wessam Tarek: 01006603998\n\nd.       Mohamed Wassal: 
+ 01009958900\n\n\n\nTIP:\n\n1.       Set an alarm for 12:25 to make sure th
+ at you submit on time.\n\n\n\nThanks and Good luck ☺\n\nWessam Tarek\n\n
+SUMMARY;LANGUAGE=en-US:Messaging Development Team Online Exam
+DTSTART;TZID=Egypt Standard Time:20200603T110000
+DTEND;TZID=Egypt Standard Time:20200603T123000
+UID:040000008200E00074C5B7101A82E00800000000E04109FFD338D601000000000000000
+ 0100000004F333D3F89877042B9F2C50B80BEB42F
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20200602T104728Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION;LANGUAGE=en-US:
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-OWNERAPPTID:1675782116
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+BEGIN:VALARM
+DESCRIPTION:REMINDER
+TRIGGER;RELATED=START:-PT15M
+ACTION:DISPLAY
+END:VALARM
+END:VEVENT
+END:VCALENDAR

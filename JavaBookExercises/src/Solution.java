@@ -1,79 +1,182 @@
-import java.util.Stack;
+import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Solution {
-	// A utility function to return precedence of a given operator
-	// Higher returned value means higher precedence
-	static int Prec(char ch) {
-		switch (ch) {
-		case '+':
-		case '-':
-			return 1;
 
-		case '*':
-		case '/':
-			return 2;
+    private boolean[][] grid;
+    private int N;
 
-		case '^':
-			return 3;
+    private WeightedQuickUnionUF qu;
+    // Doesn't connect to bottom, doesn't backwash
+    private WeightedQuickUnionUF qu2;
+    private int openSites = 0;
+    private int VIRTUAL_TOP_KEY;
+    private int VIRTUAL_BOTTOM_KEY;
+
+    public Solution(int N) {
+        this.N = N;
+        this.grid = new boolean[N][N];
+        int maxIndex = 0;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                grid[i][j] = false;
+                maxIndex = xytoD(i + 1, j + 1);
+            }
+        }
+        VIRTUAL_TOP_KEY = maxIndex + 1;
+        VIRTUAL_BOTTOM_KEY = maxIndex + 2;
+        qu = new WeightedQuickUnionUF(VIRTUAL_BOTTOM_KEY + 1);
+        qu2 = new WeightedQuickUnionUF(VIRTUAL_BOTTOM_KEY + 1);
+    }
+
+    private int xytoD(int x, int y) {
+        return x + (y * N);
+    }
+
+    public boolean isOpen(int i, int j) {
+        validateIndex(i, j);
+        return grid[j - 1][i - 1];
+    }
+
+    public boolean isFull(int i, int j) {
+        validateIndex(i, j);
+        return qu2.connected(VIRTUAL_TOP_KEY, xytoD(i, j));
+    }
+
+    public void open(int i, int j) {
+        // Indexes are from 1 to N while array indexes from 0 to N - 1
+    	if (!grid[j-1][i-1]) {
+			openSites++;
 		}
-		return -1;
+        grid[j - 1][i - 1] = true;
+        
+        if (!isLeftEdge(j)) {
+            union(i, j, 0, -1); // Connect to left square
+        }
+        if (!isRightEdge(j)) {
+            union(i, j, 0, +1); // Connect to right square
+        }
+        if (!isTopEdge(i)) {
+            union(i, j, -1, 0); // connect to top cell
+        } else {
+            unionVirtual(i, j, VIRTUAL_TOP_KEY, false); // Connect to top virtual
+        }
+        if (!isBottomEdge(i)) {
+            union(i, j, 1, 0); // connect to bottom cell
+        } else {
+            // Connect to bottom virtual
+            unionVirtual(i, j, VIRTUAL_BOTTOM_KEY, true);
+        }
+    }
+
+    public boolean percolates() {
+        return qu.connected(VIRTUAL_BOTTOM_KEY, VIRTUAL_TOP_KEY);
+    }
+    private int numberOfOpenSites() {
+		return openSites;
+
 	}
 
-	// The main method that converts given infix expression
-	// to postfix expression.
-	static String infixToPostfix(String exp) {
-		// initializing empty String for result
-		String result = new String("");
+    /**
+     * connects to adjacent cell given coordinates and offset
+     * @param i
+     * 
+     * @param j
+     * @param rowOffset
+     * @param columnOffset
+     */
+    private void union(int i, int j, int rowOffset, int columnOffset) {
+        final int currentKey = xytoD(i, j);
+        final int column2 = j + columnOffset;
+        final int row2 = i + rowOffset;
+        if (isOpen(row2, column2)) {
+            qu.union(currentKey, xytoD(row2, column2));
+            qu2.union(currentKey, xytoD(row2, column2));
+        }
+    }
 
-		// initializing empty stack
-		Stack<Character> stack = new Stack<>();
+    /**
+     * Connect to virtual top and bottom in qu.
+     * qu2 has not virtual bottom to avoid backwash
+     * @param i
+     * @param j
+     * @param virtualKey
+     * @param bottom
+     */
+    private void unionVirtual(int i, int j, int virtualKey, boolean bottom) {
+        final int currentKey = xytoD(i, j);
+        qu.union(currentKey, virtualKey);
+        if (!bottom) {
+            qu2.union(currentKey, virtualKey);
+        }
+    }
 
-		for (int i = 0; i < exp.length(); ++i) {
-			char c = exp.charAt(i);
+    /**
+     * Valid index are only between 1 and N
+     *
+     * @param x
+     * @param y
+     * @return
+     */
+    private boolean isValid(int x, int y) {
+        return x >= 1 && x <= N && y >= 1 && y <= N;
+    }
 
-			// If the scanned character is an operand, add it to output.
-			if (Character.isLetterOrDigit(c))
-				result += c;
+    private void validateIndex(int x, int y) {
+        if (!isValid(x, y)) {
+            throw new IndexOutOfBoundsException(
+                    String.format("N:%d x:%d y:%d", N, x, y));
+        }
+    }
 
-			// If the scanned character is an '(', push it to the stack.
-			else if (c == '(')
-				stack.push(c);
+    private boolean isBottomEdge(int i) {
+        return i == N;
+    }
 
-			// If the scanned character is an ')', pop and output from the stack
-			// until an '(' is encountered.
-			else if (c == ')') {
-				while (!stack.isEmpty() && stack.peek() != '(')
-					result += stack.pop();
+    private boolean isTopEdge(int i) {
+        return i == 1;
+    }
 
-				if (!stack.isEmpty() && stack.peek() != '(')
-					return "Invalid Expression"; // invalid expression
-				else
-					stack.pop();
-			} else // an operator is encountered
-			{
-				while (!stack.isEmpty() && Prec(c) <= Prec(stack.peek())) {
-					if (stack.peek() == '(')
-						return "Invalid Expression";
-					result += stack.pop();
-				}
-				stack.push(c);
-			}
+    private boolean isRightEdge(int j) {
+        return j == N;
+    }
 
-		}
+    private boolean isLeftEdge(int j) {
+        return j == 1;
+    }
+    public static void main(String[] args) {
 
-		// pop all the operators from the stack
-		while (!stack.isEmpty()) {
-			if (stack.peek() == '(')
-				return "Invalid Expression";
-			result += stack.pop();
-		}
-		return result;
+		Solution percolation = new Solution(1);
+		System.out.println(percolation.percolates());
+		percolation.open(1, 1);
+		System.out.println(percolation.percolates());
+		Solution percolation2 = new Solution(2);
+		System.out.println(percolation2.percolates());
+		percolation2.open(1, 1);
+		System.out.println(percolation2.percolates());
+		percolation2.open(2, 1);
+		System.out.println(percolation2.percolates());
+		test2();
+//		// test client (optional)
 	}
+    private static void test2() {
+        final Solution p = new Solution(3);
+        System.out.println("p.isOpen(1, 2) = " + p.isOpen(1, 2));
+        p.open(1, 2);
+        System.out.println("p.isOpen(1, 2) = " + p.isOpen(1, 2));
 
-	// Driver method
-	public static void main(String[] args) {
-		String exp = "(12 + 2) * 3" ;
-		exp = exp.replace(" ", "");
-		System.out.println(infixToPostfix(exp));
-	}
+
+        System.out.println("p.isOpen(2,2) = " + p.isOpen(2, 2));
+        p.open(2, 2);
+        System.out.println("p.isOpen(2,2) = " + p.isOpen(2, 2));
+        System.out.println("p.isFull(2, 2) = " + p.isFull(2, 2));
+
+
+        System.out.println("p.isOpen(3, 1) = " + p.isOpen(3, 2));
+        p.open(3, 2);
+        System.out.println("p.isOpen(3, 1) = " + p.isOpen(3, 2));
+        p.isFull(3, 2);
+
+
+        System.out.println("p.percolates() = " + p.percolates());
+    }
 }

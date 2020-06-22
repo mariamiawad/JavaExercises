@@ -1,3 +1,5 @@
+package week1;
+
 
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
@@ -11,6 +13,7 @@ public class PercolationStats {
 	// perform trials independent experiments on an n-by-n grid
 	public PercolationStats(int gridSize, int trials) {
 		if (gridSize <= 0) {
+			
 			throw new IllegalArgumentException("grid size must be either be equal to or greater than 1");
 		}
 

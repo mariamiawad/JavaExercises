@@ -1,15 +1,8 @@
 package week4;
 
-/**
- * 
- */
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
-import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -22,6 +15,7 @@ public final class Solver {
 	private boolean isSolvable;
 	private Stack<Board> solutionBoards;
 	private Stack<Board> reversedBoards;
+	private int count;
 
 	private class SearchNode implements Comparable<SearchNode> {
 		private final Board board;
@@ -59,12 +53,12 @@ public final class Solver {
 		MinPQ<SearchNode> searchNodes = new MinPQ<>();
 		searchNodes.insert(new SearchNode(initial, null));
 		searchNodes.insert(new SearchNode(initial.twin(), null));
-
 		while (!searchNodes.min().board.isGoal()) {
+			count++;
 			SearchNode searchNode = searchNodes.delMin();
 			for (Board board : searchNode.board.neighbors())
 				if (searchNode.prevNode == null
-						|| searchNode.prevNode != null && !searchNode.prevNode.board.equals(board))
+						|| !searchNode.prevNode.board.equals(board))
 					searchNodes.insert(new SearchNode(board, searchNode));
 		}
 
@@ -90,7 +84,7 @@ public final class Solver {
 		if (!isSolvable())
 			return -1;
 		if (!solutionBoards.isEmpty()) {
-			return solutionBoards.size()-1;
+			return solutionBoards.size() - 1;
 		}
 		return reversedBoards.size()-1;
 
@@ -106,6 +100,7 @@ public final class Solver {
 			int size = solutionBoards.size();
 			for (int i = 0; i < size; i++) {
 				reversedBoards.push(solutionBoards.pop());
+
 			}
 			return reversedBoards;
 		}
@@ -132,13 +127,15 @@ public final class Solver {
 		if (!solver.isSolvable())
 			StdOut.println("No solution possible");
 		else {
+			System.out.println(solver.moves());
+			System.out.println();
+			System.out.println(solver.solution());
 			System.out.println(solver.isSolvable());
-			System.out.println(solver.moves());
-			System.out.println(solver.moves());
-			System.out.println(solver.moves());
+
 			System.out.println(solver.solution());
 			System.out.println(solver.solution());
 			System.out.println(solver.isSolvable());
+			System.out.println();
 			System.out.println(solver.moves());
 
 //			StdOut.println("Minimum number of moves = " + solver.moves());
