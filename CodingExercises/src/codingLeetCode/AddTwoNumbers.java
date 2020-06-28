@@ -10,7 +10,7 @@ public class AddTwoNumbers {
 
 		ListNode() {
 		}
-
+		
 		ListNode(int val) {
 			this.val = val;
 		}
@@ -26,23 +26,17 @@ public class AddTwoNumbers {
 		ListNode new_node = new ListNode(data);
 		new_node.next = null;
 
-		// If the Linked List is empty,
-		// then make the new node as head
 		if (list == null) {
 			list = new_node;
 		} else {
-			// Else traverse till the last node
-			// and insert the new_node there
 			ListNode last = list;
 			while (last.next != null) {
 				last = last.next;
 			}
 
-			// Insert the new_node at last node
 			last.next = new_node;
 		}
 
-		// Return the list by head
 		return list;
 	}
 
