@@ -1,0 +1,2 @@
+module courseraAlgorithmsStanfordPart2 {
+}

@@ -64,7 +64,7 @@ static Map<Node, Integer> map = new HashMap<Node, Integer>();
 			
 		}
 		while (!lisNode.isEmpty()) {
-			System.out.println(lisNode.poll().data);
+			System.out.println(lisNode.poll().data+" ");
 			
 		}
 		

@@ -26,7 +26,7 @@ static int N =26;
                     return false;
                 }
             }
-
+            Arrays.copyOfRange(a.toCharArray(), 0, a.toCharArray().length);
             return true;
         }
     // Complete the sherlockAndAnagrams function below.
@@ -53,7 +53,7 @@ static int N =26;
                 }
             }
             return count;
-        
+            Arrays.copy(a, 0, q.length);
     }
 
 
