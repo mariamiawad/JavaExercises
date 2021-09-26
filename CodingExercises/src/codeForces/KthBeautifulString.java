@@ -19,7 +19,7 @@ public class KthBeautifulString {
 			chars[j2]='a';
 			
 		}
-		chars
+		return 0;
 		
 	}
 

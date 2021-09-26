@@ -3,7 +3,7 @@ package sorting;
 import java.lang.reflect.Array;
 import java.util.NoSuchElementException;
 
-public class MergeSort {
+public class MergeSort{
 	public <T extends Comparable<T>> void sort(T[] arr) {
 
 		if (arr.length == 0) {
@@ -57,4 +57,5 @@ public class MergeSort {
 			arr[i] = aux[i - low];
 		}
 	}
+
 }

@@ -1,6 +1,5 @@
 package chapter20;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import javafx.animation.KeyFrame;

@@ -53,7 +53,6 @@ static int N =26;
                 }
             }
             return count;
-            Arrays.copy(a, 0, q.length);
     }
 
 

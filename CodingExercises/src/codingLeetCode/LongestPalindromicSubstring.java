@@ -34,11 +34,10 @@ public class LongestPalindromicSubstring {
 		for (Character character : stack) {
 			string+= character+"";
 		}
+		
 //		for (int i = 0; i < s.length(); i++) {
 //			string+= s.charAt(i)+"";
 //		}
-		return string;
-	}
 	public static void main(String[] args) {
 		System.out.println(longestPalindrome("cbbd"));
 	}
