@@ -1,2 +1,0 @@
-module hackerRank30DaysChallenge {
-}
